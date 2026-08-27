@@ -1,0 +1,51 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Next.js build output
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Production
+/build
+
+# Local env / secrets — NEVER commit
+.env
+.env*.local
+.env.local
+.env.development.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# Local runtime / seed data (regenerate with scripts/seed-demo.mjs)
+# Runtime data stays local — except the applied client's configuration:
+# settings.json and catalog-products.json in a single-client copy are not
+# scratch data but this site's business name, brand, theme, copy, and
+# services. Excluded, the deployment serves the demo baseline instead of
+# the client.
+/.factory-data/*
+!/.factory-data/settings.json
+!/.factory-data/catalog-products.json
+!/.factory-data/settings.json
+
+# Design tooling scratch output
+/.impeccable/
+
+# Logs & OS
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+*.pem
+
+# Editor
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.env*
+/public/_preview/
