@@ -4197,8 +4197,10 @@ img[src*="placeholder"] {
   line-height: 1.35; color: #FFFFFF;
 }
 .rc-directory-link {
-  color: #FFFFFF; text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--sign-hivis, #9AD201) 55%, transparent);
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-decoration-color: var(--sign-hivis, #9AD201);
+  text-underline-offset: 3px;
 }
 .rc-directory-link:hover { color: var(--sign-hivis, #9AD201); }
 
