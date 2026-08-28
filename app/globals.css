@@ -4174,26 +4174,33 @@ img[src*="placeholder"] {
 .rc-pitch p { margin: 0 0 14px; font-size: 1rem; line-height: 1.72; color: rgba(255, 255, 255, 0.88); }
 .rc-pitch p:last-child { margin-bottom: 0; }
 
-/* Sponsor strip. Translating exactly -50% lands the duplicated copy where the
-   original began, so the loop has no seam. */
-.rc-banner {
-  overflow: hidden; margin: 30px 0 0; border-radius: 0.35rem;
+/* Sponsor directory. Same dark panel and hi-vis rules as the old marquee,
+   laid out as a grid so each name can carry a link. */
+.rc-directory {
+  margin: 28px 0 0; padding: 18px 20px 20px; max-width: 44rem;
+  border-radius: 0.35rem;
   border-top: 3px solid var(--sign-hivis, #9AD201);
   border-bottom: 3px solid var(--sign-hivis, #9AD201);
   background: rgba(0, 20, 48, 0.62);
 }
-.rc-banner-track { display: flex; width: max-content; animation: rc-marquee 26s linear infinite; }
-.rc-banner-list { display: flex; align-items: center; gap: 44px; margin: 0; padding: 0 22px; list-style: none; }
-.rc-banner-list li {
-  white-space: nowrap; padding: 11px 0;
-  font-size: 0.95rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;
-  color: #FFFFFF;
+.rc-directory-kicker {
+  margin: 0 0 12px; font-size: 0.76rem; font-weight: 800;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--sign-hivis, #9AD201);
 }
-@keyframes rc-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) {
-  .rc-banner-track { animation: none; }
-  .rc-banner { overflow-x: auto; }
+.rc-directory-list {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 8px 18px; margin: 0; padding: 0; list-style: none;
 }
+.rc-directory-list li {
+  margin: 0;
+  font-size: 0.92rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;
+  line-height: 1.35; color: #FFFFFF;
+}
+.rc-directory-link {
+  color: #FFFFFF; text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--sign-hivis, #9AD201) 55%, transparent);
+}
+.rc-directory-link:hover { color: var(--sign-hivis, #9AD201); }
 
 .rc-apply { display: grid; gap: 22px; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); align-items: start; }
 @media (max-width: 860px) { .rc-apply { grid-template-columns: 1fr; } }

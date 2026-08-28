@@ -128,6 +128,9 @@ export default async function HomeServiceLandingPage() {
           <h2>Why customers call us</h2>
         </div>
         <p className="hs-intro-copy">{siteContent.aboutCopy}</p>
+        <p className="hs-intro-copy hs-intro-single">
+          Most of the work comes from neighbors, shops, and people who call him directly.
+        </p>
       </section>
 
       {/* Differentiators — the objection-killers, on a dark panel. */}

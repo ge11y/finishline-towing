@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { getPublicFactorySettings } from '@/lib/public-factory-settings'
-import { SponsorBanner } from '@/components/racing/SponsorBanner'
+import { SponsorDirectory } from '@/components/racing/SponsorDirectory'
 import { SponsorForm } from '@/components/racing/SponsorForm'
 import { RACE_FACEBOOK, RACE_TRACK } from '@/lib/sponsors'
 
@@ -30,10 +30,11 @@ export async function generateMetadata(): Promise<Metadata> {
  * under the copy where the photo is bright asphalt and white text would
  * otherwise disappear.
  *
- * Written only from what is known. Kiptyn drives the 74 and Josh hauls it on
- * the same flatbed that does the towing. His class, his track and the season's
- * schedule are absent because nobody has told us, and a racing page that
- * invents a division is worse than one that is short.
+ * Written only from what is known. Kiptyn drives the 74 at White Mountain
+ * Motorsports Park. Finish Line Towing is family and a sponsor — the name
+ * goes on the truck. Josh does not haul the race car to the track. His class
+ * and the season's schedule are absent because nobody has told us, and a
+ * racing page that invents a division is worse than one that is short.
  */
 export default async function RacingPage() {
   const settings = await getPublicFactorySettings()
@@ -60,7 +61,7 @@ export default async function RacingPage() {
         <div className="rc-stage-inner">
           <header className="rc-stage-head">
             <p className="rc-kicker">The 74</p>
-            <h1>Kiptyn races. We haul him there.</h1>
+            <h1>Kiptyn races. We put the name on the truck.</h1>
             {/* Kiptyn's own words, from a post of his. Left exactly as he wrote
                 them — the line breaks are his and they carry the rhythm. This
                 is the best writing on the page and it is not ours. */}
@@ -83,17 +84,18 @@ export default async function RacingPage() {
             </blockquote>
 
             <p className="rc-lead">
-              He runs the 74 at {RACE_TRACK}. The same flatbed that pulls cars out of ditches all
-              week loads him up at the weekend, and a row of local businesses ride along on the door.
+              He runs the 74 at {RACE_TRACK}. Finish Line Towing backs the program as family and as
+              a sponsor — the name on the truck. A row of local businesses ride along on the door.
             </p>
             <a href={RACE_FACEBOOK} className="rc-fb" target="_blank" rel="noreferrer">
               Follow Kiptyn Ross Aldrich Racing #74 on Facebook
             </a>
           </header>
 
-          <SponsorBanner />
-
           <ul className="rc-shots">
+            {/* Josh will send pictures of Kiptyn's car. Do not invent or add car
+                photos until those arrive. The frames below are the existing
+                truck / victory set already on the site. */}
             {[
               { src: 'race-74-side', alt: 'Sponsor decals along the side of the number 74' },
               { src: 'race-74-tail', alt: 'The tailgate of the 74, carrying Boudreault Septic' },
@@ -110,6 +112,8 @@ export default async function RacingPage() {
               </li>
             ))}
           </ul>
+
+          <SponsorDirectory />
 
           <div className="rc-pitch">
             <h2>Putting your name on the truck</h2>
