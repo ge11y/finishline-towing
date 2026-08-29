@@ -24,32 +24,38 @@ export const SPONSOR_LEVELS = [
   'Not sure yet — let’s talk',
 ] as const
 
+export type CurrentSponsor = {
+  name: string
+  /** Verified public homepage. Internal paths allowed (FINISHLINE Towing → /site). */
+  url?: string
+}
+
 /**
  * Businesses carried on the #74.
  *
- * Read off the owner's own photographs of the truck, where each of these is
- * painted or decalled in full view — the victory-lane shot and the detail
- * frames he supplied. That is good evidence they are real sponsors. It is
- * still not the same as their permission to appear on a website, so this is
- * worth walking through with Josh before it goes in front of anyone.
+ * Names were read off the owner's photographs of the truck, then confirmed as
+ * the live roster at the 2026-08-28 yard meeting. Deliberately excluded: ACT
+ * and White Mountain Motorsports Park (sanctioning body and track, not
+ * sponsors), and one decal whose wording could not be read with confidence.
  *
- * Deliberately excluded: ACT and White Mountain Motorsports Park, which are
- * the sanctioning body and the track rather than his sponsors, and one decal
- * whose wording could not be read with confidence.
+ * `url` is set only when a public homepage could be verified. Watson's Garage
+ * and McKean Builders had none, so they are listed unlinked. Facebook pages
+ * and directory listings do not count. Logos later, from the sponsors
+ * themselves.
  *
- * Logos would be better than text and have to come from the sponsors
- * themselves. Their names set properly beat a row of grey placeholder boxes.
+ * Bobcat of Woodsville's public homepage is Woodsville Power Equipment, the
+ * Bobcat dealer at 4942 Dartmouth College Hwy.
  */
-export const CURRENT_SPONSORS: { name: string }[] = [
-  { name: 'Bobcat of Woodsville' },
-  { name: 'Boudreault Septic' },
+export const CURRENT_SPONSORS: CurrentSponsor[] = [
+  { name: 'Bobcat of Woodsville', url: 'https://www.woodsvillepowerequipment.com/' },
+  { name: 'Boudreault Septic', url: 'https://boudreaultseptic.com/' },
   { name: 'Watson’s Garage' },
-  { name: 'Milton CAT' },
-  { name: 'Sunoco Race Fuels' },
-  { name: 'Longacre Racing Products' },
-  { name: 'Fireside Hearth & Leisure' },
+  { name: 'Milton CAT', url: 'https://www.miltoncat.com/' },
+  { name: 'Sunoco Race Fuels', url: 'https://www.sunocoracefuels.com/' },
+  { name: 'Longacre Racing Products', url: 'https://longacreracing.com/' },
+  { name: 'Fireside Hearth & Leisure', url: 'https://www.firesidehearth.net/' },
   { name: 'McKean Builders' },
-  { name: 'FINISHLINE Towing' },
+  { name: 'FINISHLINE Towing', url: '/site' },
 ]
 
 /** Where he races, and the page he posts from. Both owner-supplied. */

@@ -22,9 +22,10 @@ export const SITUATIONS = [
 export const VEHICLE_FLAGS = ['All-wheel drive', 'Lowered', 'Classic'] as const
 
 /**
- * Where a job came from. Roughly 90% of his work arrives through AAA, so a
- * list that does not distinguish makes the website look like it is carrying
- * the business — and hides what the site is actually worth.
+ * Where a job came from. Yard meeting 2026-08-28: the work is word of mouth —
+ * neighbors, shops, and people who call him directly. NOT AAA or membership
+ * clubs, and AAA never goes on the public page. The 'aaa' option stays only
+ * so the odd club job and any rows already saved with it remain recordable.
  */
 export const SOURCES = ['web', 'phone', 'aaa', 'other'] as const
 export type TowSource = (typeof SOURCES)[number]

@@ -16,7 +16,7 @@ Public:
 |---|---|
 | `/site` | Home — hero, call bar, the paged request form, services, service area. Canonical; `/` redirects here. |
 | `/services/[slug]` | One page per service, generated from the catalog. Six of them. |
-| `/racing` | Kiptyn Aldrich's #74 programme, sponsor banner, sponsorship application. |
+| `/racing` | Kiptyn Aldrich's #74 programme, sponsor directory, sponsorship application. |
 | `/merch` | Showcase only. Ordering opens a text message to Josh; there is no checkout. |
 | `/about` · `/faq` · `/service-area` · `/contact` · `/terms` · `/privacy` | Supporting pages. |
 
@@ -98,8 +98,10 @@ Splitting them is outstanding.
   — NH Secretary of State, FMCSA, Yelp, MapQuest, Facebook, and the truck itself — carries
   (603) 252-5568. Inconsistent NAP suppresses local ranking. Settle it before the Google listing
   verifies.
-- Sponsor names in `lib/sponsors.ts` were read off photographs of the truck. A decal is evidence,
-  not permission. Needs Josh's sign-off before it stays public.
+- Sponsor names in `lib/sponsors.ts` were confirmed as the live roster at the
+  2026-08-28 yard meeting. Logos still have to come from the sponsors
+  themselves. Watson's Garage and McKean Builders have no verified public
+  homepage yet.
 - Merch items are plausible placeholders. Only the Legal Hooker design actually exists.
 - Three service photos (roadside, motorcycle, junk car) are missing and fall back to a placeholder.
 - `serviceSite.badges` is empty, so the trust strip renders nothing.

@@ -4,7 +4,7 @@ import { createTowRequest, updateTowRequest } from '@/lib/tow-requests'
 import { SITUATIONS, SOURCES, VEHICLE_FLAGS, splitVehicle, type TowSource } from '@/lib/tow-fields'
 
 /**
- * Owner-entered jobs — the ones that arrived by phone or through AAA.
+ * Owner-entered jobs — the ones that arrive by phone or word of mouth.
  *
  * Notification is deliberately not fired here. He is the one entering it; a
  * text telling him about a job he just typed in is noise, and noise is how a
