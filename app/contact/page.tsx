@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Mail, MapPin, MessageSquareText, PackageSearch, Phone } from 'lucide-react'
 import { getLiveCatalogProducts } from '@/lib/catalog-live'
 import { getPublicFactorySettings } from '@/lib/public-factory-settings'
+import { CELL_NOTE, CELL_PHONE, PAGER_NOTE, telHref } from '@/lib/contact'
 import { QuoteForm } from '@/components/service/QuoteForm'
 import { BusinessSchema } from '@/components/BusinessSchema'
 
@@ -27,9 +28,20 @@ export default async function ContactPage() {
           {
             label: 'Call or text',
             value: phone,
-            note: settings.supportNote,
+            note: PAGER_NOTE,
             icon: Phone,
-            href: `tel:${phone.replace(/[^+\d]/g, '')}`,
+            href: telHref(phone),
+          },
+          // The number on the door of the truck, and on every existing
+          // listing. Second because he asked for the pager first, but present
+          // because a customer reading it off the flatbed must not find a
+          // site that disowns it.
+          {
+            label: 'Or his cell',
+            value: CELL_PHONE,
+            note: CELL_NOTE,
+            icon: Phone,
+            href: telHref(CELL_PHONE),
           },
         ]
       : []),
@@ -66,8 +78,8 @@ export default async function ContactPage() {
   // Kept trade-neutral: clients range from crews that travel to a job site to
   // shops the customer drives to, so avoid "project" / "where the work is".
   const headline = isServiceMode ? 'Get in touch.' : 'Questions, order support, and catalog help.'
-  // supportNote already sits on the "Call or text" card when there is a phone,
-  // so only fold it into the subline when that card is absent.
+  // The two phone cards now carry their own labels, so supportNote is only
+  // needed in the subline when there is no phone and those cards are absent.
   const subline = isServiceMode
     ? `Send ${settings.businessName} a note about what you need — what is going on, and when you would like it looked at.${phone ? '' : ` ${settings.supportNote}`}`
     : `Send ${settings.businessName} the product name, size, order number, or question you need help with. Typical response time is 1–2 business days.`

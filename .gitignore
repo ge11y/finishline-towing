@@ -49,3 +49,6 @@ yarn-error.log*
 !.vscode/extensions.json
 .env*
 /public/_preview/
+
+# Owner-supplied originals; the copies that ship live in public/clients/.
+/assets/

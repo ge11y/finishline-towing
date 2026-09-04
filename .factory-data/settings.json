@@ -18,7 +18,7 @@
     "companyPhone": "(603) 615-6750",
     "companyAddress": "585 Benton Road, North Haverhill, NH 03774",
     "contactInfo": "",
-    "supportNote": "Call the pager — (603) 615-6750. It goes straight to Josh. If you can't get through, his cell is (603) 252-5568.",
+    "supportNote": "Call the pager \u2014 (603) 615-6750. It goes straight to Josh. If you can't get through, his cell is (603) 252-5568.",
     "socials": [
       {
         "label": "Instagram",
@@ -114,11 +114,11 @@
   "siteContent": {
     "homepageHeadline": "Leading the way.",
     "homepageSubheadline": "Flatbed towing and recovery out of North Haverhill, New Hampshire, 23.5 hours a day. One call reaches the owner.",
-    "proofPoints": "Answering 23.5 hours a day · Owner-operated since 2021 · 100% recommend on Facebook · USDOT 3693451",
+    "proofPoints": "Answering 23.5 hours a day \u00b7 Owner-operated since 2021 \u00b7 100% recommend on Facebook \u00b7 USDOT 3693451",
     "primaryCtaLabel": "Stranded? Call now!",
     "secondaryCtaLabel": "Request a tow",
     "aboutCopy": "Finish Line Towing is Joshua Aldrich. He worked a year towing for someone else, bought that man's truck so he could cover more hours, and has run it out of North Haverhill since July 2021. It's one flatbed, kept clean enough to win truck shows, and the phone goes to him. In his words: \"I started in this business as an opportunity to provide for our area, with services much needed.\"",
-    "faqCopy": "Do you answer at night?\n23.5 hours a day, seven days a week — everybody sleeps sometime. It's a small outfit, so you're reaching the owner directly rather than a dispatch center.\n\nIs it a flatbed or a wheel-lift?\nFlatbed. Your vehicle rides on the deck instead of being dragged on two wheels, which is what you want for anything low, all-wheel drive, classic, or already damaged.\n\nWill you tow a motorcycle?\nYes — cars, trucks, and motorcycles.\n\nWhere are you based?\n585 Benton Road, North Haverhill, NH 03774, in Grafton County.\n\nHow long have you been doing this?\nFinish Line Towing, LLC was formed in July 2021 and is registered and in good standing with the State of New Hampshire.",
+    "faqCopy": "Do you answer at night?\n23.5 hours a day, seven days a week \u2014 everybody sleeps sometime. It's a small outfit, so you're reaching the owner directly rather than a dispatch center.\n\nIs it a flatbed or a wheel-lift?\nFlatbed. Your vehicle rides on the deck instead of being dragged on two wheels, which is what you want for anything low, all-wheel drive, classic, or already damaged.\n\nWill you tow a motorcycle?\nYes \u2014 cars, trucks, and motorcycles.\n\nWhere are you based?\n585 Benton Road, North Haverhill, NH 03774, in Grafton County.\n\nHow long have you been doing this?\nFinish Line Towing, LLC was formed in July 2021 and is registered and in good standing with the State of New Hampshire.",
     "legalSupportCopy": "Rates depend on distance, vehicle, and conditions, and are quoted before the truck rolls.",
     "footerDisclaimer": "Demo site prepared for Finish Line Towing, LLC from public business listings and owner-supplied photos. Not yet authorized or reviewed by the business. Service list and hours pending owner confirmation."
   },
@@ -181,7 +181,7 @@
     ],
     "whyChooseUs": [
       {
-        "text": "Flatbed only — your car rides on the deck, it never drags",
+        "text": "Flatbed only \u2014 your car rides on the deck, it never drags",
         "icon": "truck"
       },
       {
@@ -201,7 +201,7 @@
         "icon": "clock"
       },
       {
-        "text": "USDOT 3693451 — registered, active, no crashes on record",
+        "text": "USDOT 3693451 \u2014 registered, active, no crashes on record",
         "icon": "shield"
       }
     ],
@@ -209,7 +209,7 @@
     "ctaCards": [
       {
         "title": "Broken down right now?",
-        "body": "Don't fill out a form. Call — nights, weekends, holidays.",
+        "body": "Don't fill out a form. Call \u2014 nights, weekends, holidays.",
         "actionLine": "(603) 615-6750"
       },
       {
@@ -236,7 +236,7 @@
       {
         "author": "Alfred R. Porcaro III",
         "rating": 5,
-        "text": "If you're ever down and out on your luck you can count on this company to have your back! The best in the industry — professional, knowledgeable and extremely helpful.",
+        "text": "If you're ever down and out on your luck you can count on this company to have your back! The best in the industry \u2014 professional, knowledgeable and extremely helpful.",
         "date": "October 6, 2025",
         "source": "Recommended on Facebook"
       },
@@ -251,24 +251,28 @@
     "badges": [],
     "galleryImages": [
       {
-        "src": "/clients/finish-line-towing/gallery-1.jpg",
-        "alt": "Classic coupe strapped to the flatbed deck"
+        "src": "/clients/finish-line-towing/work-camaro-randys.jpg",
+        "alt": "A first-generation Camaro strapped down on the flatbed outside Randy's Autobody"
       },
       {
-        "src": "/clients/finish-line-towing/gallery-3.jpg",
-        "alt": "The truck loaded on a summer afternoon"
+        "src": "/clients/finish-line-towing/work-fire-pickup-barn.jpg",
+        "alt": "A vintage Goshen, Conn. fire department pickup on the deck beside a barn"
       },
       {
-        "src": "/clients/finish-line-towing/gallery-2.jpg",
-        "alt": "Deck ramped down on a wooded drive during a recovery"
+        "src": "/clients/finish-line-towing/work-golf-mowers.jpg",
+        "alt": "Two Toro Reelmaster mowers chained to the flatbed at the edge of a golf course"
       },
       {
-        "src": "/clients/finish-line-towing/gallery-4.jpg",
-        "alt": "Polished wheel on the wrecker"
+        "src": "/clients/finish-line-towing/work-suv-loaded.jpg",
+        "alt": "The branded Finish Line flatbed with a black Ford Explorer loaded on the deck"
+      },
+      {
+        "src": "/clients/finish-line-towing/work-accord-loading.jpg",
+        "alt": "A black Honda Accord being winched onto the deck at the end of a gravel drive"
       }
     ],
     "quoteFormTitle": "Request a tow",
-    "quoteFormNote": "If you're stranded, call instead — it's faster. Use this for scheduled tows, transport, and junk cars."
+    "quoteFormNote": "If you're stranded, call instead \u2014 it's faster. Use this for scheduled tows, transport, and junk cars."
   },
   "factoryWorkflow": {
     "targetTier": "launch_kit",

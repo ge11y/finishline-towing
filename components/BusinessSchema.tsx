@@ -1,4 +1,5 @@
 import { getPublicFactorySettings } from '@/lib/public-factory-settings'
+import { CELL_PHONE } from '@/lib/contact'
 
 /**
  * Structured data for the business, so a search engine can read the phone
@@ -77,6 +78,26 @@ export async function BusinessSchema() {
     description: settings.siteContent.homepageSubheadline,
     url: `${base}/site`,
     telephone: settings.companyPhone,
+    // Both lines, so the listing Google builds from this page matches the
+    // number on the truck as well as the one the site leads with. `telephone`
+    // stays the pager because that is the primary; contactPoint carries the
+    // pair, which is how schema.org expresses more than one line.
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: settings.companyPhone,
+        contactType: 'dispatch',
+        areaServed: 'US-NH',
+        availableLanguage: 'English',
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: CELL_PHONE,
+        contactType: 'dispatch',
+        areaServed: 'US-NH',
+        availableLanguage: 'English',
+      },
+    ],
     email: settings.companyEmail,
     image: settings.brandSettings.logoUrl ? `${base}${settings.brandSettings.logoUrl}` : undefined,
     logo: settings.brandSettings.logoUrl ? `${base}${settings.brandSettings.logoUrl}` : undefined,

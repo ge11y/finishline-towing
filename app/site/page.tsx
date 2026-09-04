@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Check, Star } from 'lucide-react'
 import { getLiveCatalogDisplayProducts } from '@/lib/catalog-live'
 import { getPublicFactorySettings } from '@/lib/public-factory-settings'
+import { CELL_PHONE } from '@/lib/contact'
 import { QuoteForm } from '@/components/service/QuoteForm'
 import { BusinessSchema } from '@/components/BusinessSchema'
 import { WhyIcon } from '@/components/WhyIcon'
@@ -187,6 +188,8 @@ export default async function HomeServiceLandingPage() {
               Read all reviews
             </a>
           ) : null}
+        </section>
+      ) : null}
 
       {/* Services — alternating rows so each trade gets a photo at size. */}
       <section className="hs-section" id="services">
@@ -257,8 +260,6 @@ export default async function HomeServiceLandingPage() {
         </section>
       ) : null}
 
-        </section>
-      ) : null}
 
       {/* Certifications and supplier marks — trust currency in the trades. */}
       {serviceSite.badges.length ? (
@@ -305,6 +306,8 @@ export default async function HomeServiceLandingPage() {
             <p className="hs-close-meta">
               {settings.companyAddress ? <>{settings.companyAddress} · </> : null}
               {hasPhone ? <a href={telHref(settings.companyPhone)}>{settings.companyPhone}</a> : null}
+              {' · '}
+              <a href={telHref(CELL_PHONE)}>{CELL_PHONE}</a>
             </p>
           </div>
           <div className="hs-close-actions">

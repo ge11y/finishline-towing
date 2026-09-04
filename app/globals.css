@@ -2423,10 +2423,15 @@ a.admin-list-row:focus-visible {
 .hs-projects-head { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 .hs-projects-grid {
   max-width: 1120px; margin: 30px auto 0; padding: 0 24px;
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  /* auto-fit rather than a fixed 4, because the count is data-driven — five
+     photos in a rigid four-column grid leaves one orphan on its own row. */
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;
 }
 .hs-projects-grid figure {
-  position: relative; margin: 0; aspect-ratio: 4 / 5;
+  /* 4:3 matches what comes out of the phone these were shot on. The frame was
+     portrait 4:5, which under object-fit:cover threw away 40% of the width —
+     on a photo of a flatbed that is the cab or the car on the deck. */
+  position: relative; margin: 0; aspect-ratio: 4 / 3;
   border-radius: 0.75rem; overflow: hidden; background: var(--bg-surface);
   box-shadow: 0 18px 34px -26px color-mix(in srgb, #101828 60%, transparent);
 }
