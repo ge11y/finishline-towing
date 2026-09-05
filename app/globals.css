@@ -2385,6 +2385,10 @@ a.admin-list-row:focus-visible {
   gap: 44px; align-items: center;
 }
 .hs-row:nth-child(even) .hs-row-media { order: 2; }
+/* A service still waiting on a photograph: one column, held to a readable
+   measure rather than stretched across the full width of the page. */
+.hs-row-noimg { grid-template-columns: minmax(0, 1fr); }
+.hs-row-noimg .hs-row-body { max-width: 68ch; }
 .hs-row-media {
   position: relative; aspect-ratio: 16 / 10; border-radius: 0.75rem; overflow: hidden;
   background: var(--bg-elevated);

@@ -70,19 +70,27 @@ export default async function ServiceDetailPage({ params }: Props) {
       <section className="hs-service-hero">
         {/* Not aria-hidden when it carries the bullets — that would hide real
             content from assistive tech. */}
-        <div className="hs-service-hero-media" aria-hidden={usesBullets ? undefined : true}>
-          {service.image ? (
-            <Image src={service.image} alt="" fill priority sizes="100vw" style={{ objectFit: 'cover' }} />
-          ) : null}
-          <div className="hs-hero-scrim" />
-          {usesBullets ? (
-            <ul className="hs-hero-bullets">
-              {bulletPoints.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
-          ) : null}
-        </div>
+        {/* The theme gives this a border, a shadow and a flag rule, so with no
+            photograph and no bullets it renders as a large empty framed box —
+            worse than simply starting at the title. Only mounted when it has
+            something to hold.
+            Not aria-hidden when it carries the bullets — that would hide real
+            content from assistive tech. */}
+        {service.image || usesBullets ? (
+          <div className="hs-service-hero-media" aria-hidden={usesBullets ? undefined : true}>
+            {service.image ? (
+              <Image src={service.image} alt="" fill priority sizes="100vw" style={{ objectFit: 'cover' }} />
+            ) : null}
+            <div className="hs-hero-scrim" />
+            {usesBullets ? (
+              <ul className="hs-hero-bullets">
+                {bulletPoints.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+        ) : null}
         <div className="hs-service-hero-inner">
           <nav className="hs-crumbs" aria-label="Breadcrumb">
             <Link href="/site">Home</Link>

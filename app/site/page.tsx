@@ -198,9 +198,12 @@ export default async function HomeServiceLandingPage() {
         </div>
         <div className="hs-rows">
           {services.map((service) => (
-            <article key={service.slug} className="hs-row">
-              <div className="hs-row-media">
-                {service.image ? (
+            <article key={service.slug} className={`hs-row${service.image ? '' : ' hs-row-noimg'}`}>
+              {/* No empty media panel when there is no photograph — an image
+                  slot with nothing in it reads as a broken image, not as a
+                  design choice. The row goes single-column instead. */}
+              {service.image ? (
+                <div className="hs-row-media">
                   <Image
                     src={service.image}
                     alt={service.displayName}
@@ -208,8 +211,8 @@ export default async function HomeServiceLandingPage() {
                     sizes="(max-width: 900px) 100vw, 560px"
                     style={{ objectFit: 'cover' }}
                   />
-                ) : null}
-              </div>
+                </div>
+              ) : null}
               <div className="hs-row-body">
                 <h3>{service.displayName}</h3>
                 <p>{service.summaryShort}</p>

@@ -15,6 +15,16 @@ import { getSupabaseAdmin } from '@/lib/supabase-admin'
 import { applyPromosToProduct, getActiveSitePromos } from '@/lib/site-promos'
 import { getInventoryStatusFromCount } from '@/lib/inventory-state'
 
+/**
+ * The factory's stand-in graphic reads "PLACEHOLDER — Elite Solutions" over a
+ * picture of the Golden Gate Bridge. On a client's live site that is worse
+ * than no photograph at all: it puts the agency's name and a Californian
+ * landmark on a New Hampshire tow page. Treated as absent everywhere, so each
+ * surface falls back to its own no-image layout.
+ */
+const PLACEHOLDER_IMAGE = '/brand/placeholder.png'
+const realImage = (url: string): string => (url === PLACEHOLDER_IMAGE ? '' : url)
+
 type CatalogSourceRow = Partial<CatalogInventoryRecord> & {
   sku?: string
   display_name?: string
@@ -574,7 +584,7 @@ function createProductFromCatalogRecord(record: CatalogInventoryRecord): Product
     features: ['Standardized label format', 'Demo catalog presentation', 'Quality-report-linked workflow'],
     accentColor: 'warm sandstone',
     accentColorHex: '#B49B7F',
-    image: record.imageUrl,
+    image: realImage(record.imageUrl),
     hoverSpinFrames: [],
     publishStatus: 'confirmed',
     needsFounderConfirmation: false,
@@ -594,7 +604,7 @@ function applyCatalogAssetsToProduct(
 
   return {
     ...product,
-    image: asset.imageUrl,
+    image: realImage(asset.imageUrl),
     coaUrl: product.coaNotRequired ? '' : asset.coaUrl ?? product.coaUrl,
     coaStatus: product.coaNotRequired ? 'not_available' : asset.coaUrl ? 'available' : product.coaStatus,
   }
