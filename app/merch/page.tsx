@@ -49,13 +49,15 @@ export default async function MerchPage() {
           {MERCH.map((item) => (
             <li key={item.slug} className="mc-card">
               <div className="mc-art">
-                <Image
-                  src={item.image ?? '/brand/placeholder.png'}
-                  alt={item.image ? item.name : ''}
-                  width={600}
-                  height={600}
-                  className={item.image ? undefined : 'mc-art-placeholder'}
-                />
+                {/* No artwork yet means no image element. The factory's stand-in
+                    graphic says "PLACEHOLDER — Elite Solutions", which is the
+                    agency's name on the client's shop. The tile carries the
+                    mascot outline and its own label instead. */}
+                {item.image ? (
+                  <Image src={item.image} alt={item.name} width={600} height={600} />
+                ) : (
+                  <div className="mc-art-empty" aria-hidden="true" />
+                )}
                 {item.image ? null : <span className="mc-soon">Design in progress</span>}
               </div>
               <div className="mc-body">
