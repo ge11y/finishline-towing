@@ -41,7 +41,10 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
 export function Footer({ settings }: { settings?: PublicFactorySettings }) {
   const businessName = settings?.businessName || SITE_SETTINGS.businessName;
   const tagline = settings?.siteContent.homepageSubheadline || SITE_SETTINGS.tagline;
-  const footerDisclaimer = settings?.siteContent.footerDisclaimer || SITE_SETTINGS.footerDisclaimer;
+  // `??`, not `||`: an empty disclaimer is a real choice. With `||`, clearing
+  // this field in the admin fell through to the factory's own demo string, so
+  // a live client site could not be rid of one without being given the other.
+  const footerDisclaimer = settings?.siteContent.footerDisclaimer ?? SITE_SETTINGS.footerDisclaimer;
   const catalogLabel = settings?.catalogSettings.productLabel || "Catalog";
   const isServiceMode = settings?.catalogSettings.catalogMode === "services";
   const serviceSite = settings?.serviceSite;
