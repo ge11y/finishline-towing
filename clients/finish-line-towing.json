@@ -5,7 +5,7 @@
   "tier": "launch_kit",
   "theme": "road_conspicuity",
   "serviceLabel": "What we do",
-  "notes": "Lead: Joshua Aldrich, owner-operator. Referred by the owner's nephew, a prior customer. No website. Research in ge11yz/leads/finish-line-towing/dossier.json — every claim below traces to a source there. Legal name is 'Finish Line Towing, LLC' (two words) but the truck wrap and logo both read FINISHLINE, so the site leads with the truck. UNCONFIRMED PENDING OWNER: roadside assistance, junk car removal, recovery, hauling (included at the referrer's direction for the preview); service-area towns are absent because no source states any.",
+  "notes": "Lead: Joshua Aldrich, owner-operator. Referred by the owner's nephew, a prior customer. No website. Research in ge11yz/leads/finish-line-towing/dossier.json \u2014 every claim below traces to a source there. Legal name is 'Finish Line Towing, LLC' (two words) but the truck wrap and logo both read FINISHLINE, so the site leads with the truck. UNCONFIRMED PENDING OWNER: roadside assistance, junk car removal, recovery, hauling (included at the referrer's direction for the preview); service-area towns are absent because no source states any.",
   "brand": {
     "primary": "#003F86",
     "accent": "#9AD201",
@@ -21,7 +21,7 @@
     "publicEmail": "finishlinetowing21@gmail.com",
     "phone": "(603) 615-6750",
     "address": "585 Benton Road, North Haverhill, NH 03774",
-    "supportNote": "Call the pager — (603) 615-6750. It goes straight to Josh. If you can't get through, his cell is (603) 252-5568.",
+    "supportNote": "Days: call Josh\u2019s cell (603) 252-5568. After 8pm until 5am, call the pager (603) 615-6750.",
     "socials": [
       {
         "label": "Facebook",
@@ -32,9 +32,9 @@
   },
   "content": {
     "headline": "Leading the way.",
-    "subheadline": "Flatbed towing and recovery out of North Haverhill, New Hampshire, 23.5 hours a day. One call reaches the owner.",
+    "subheadline": "Flatbed towing and recovery out of North Haverhill, New Hampshire. Cell by day, pager after 8pm.",
     "proofPoints": [
-      "Answering 23.5 hours a day",
+      "Pager after 8pm \u00b7 Cell by day",
       "Owner-operated since 2021",
       "100% recommend on Facebook",
       "USDOT 3693451"
@@ -45,7 +45,7 @@
     "faq": [
       {
         "q": "Do you answer at night?",
-        "a": "23.5 hours a day, seven days a week — everybody sleeps sometime. It's a small outfit, so you're reaching the owner directly rather than a dispatch center."
+        "a": "After 8pm until 5am, call the pager \u2014 (603) 615-6750. During the day, call Josh\u2019s cell \u2014 (603) 252-5568. Either way you\u2019re reaching him, not a call center."
       },
       {
         "q": "Is it a flatbed or a wheel-lift?",
@@ -53,7 +53,7 @@
       },
       {
         "q": "Will you tow a motorcycle?",
-        "a": "Yes — cars, trucks, and motorcycles."
+        "a": "Yes \u2014 cars, trucks, and motorcycles."
       },
       {
         "q": "Where are you based?",
@@ -73,13 +73,17 @@
     "serviceAreaTowns": [],
     "businessHours": [
       {
-        "days": "Every day",
-        "hours": "23.5 hours"
+        "days": "Every day \u00b7 daytime",
+        "hours": "Cell (603) 252-5568"
+      },
+      {
+        "days": "Every night \u00b7 8pm\u20135am",
+        "hours": "Pager (603) 615-6750"
       }
     ],
     "whyChooseUs": [
       {
-        "text": "Flatbed only — your car rides on the deck, it never drags",
+        "text": "Flatbed only \u2014 your car rides on the deck, it never drags",
         "icon": "truck"
       },
       {
@@ -95,11 +99,11 @@
         "icon": "phone"
       },
       {
-        "text": "23.5 hours a day, seven days a week",
+        "text": "Pager after 8pm, cell during the day \u2014 you reach Josh either way",
         "icon": "clock"
       },
       {
-        "text": "USDOT 3693451 — registered, active, no crashes on record",
+        "text": "USDOT 3693451 \u2014 registered, active, no crashes on record",
         "icon": "shield"
       }
     ],
@@ -107,7 +111,7 @@
     "ctaCards": [
       {
         "title": "Broken down right now?",
-        "body": "Don't fill out a form. Call — nights, weekends, holidays.",
+        "body": "Don't fill out a form. Days: cell (603) 252-5568. After 8pm\u20135am: pager (603) 615-6750.",
         "actionLine": "(603) 615-6750"
       },
       {
@@ -136,7 +140,7 @@
         "rating": 5,
         "date": "October 6, 2025",
         "source": "Recommended on Facebook",
-        "text": "If you're ever down and out on your luck you can count on this company to have your back! The best in the industry — professional, knowledgeable and extremely helpful."
+        "text": "If you're ever down and out on your luck you can count on this company to have your back! The best in the industry \u2014 professional, knowledgeable and extremely helpful."
       },
       {
         "author": "Chris Baj",
@@ -166,7 +170,7 @@
       }
     ],
     "quoteFormTitle": "Request a tow",
-    "quoteFormNote": "If you're stranded, call instead — it's faster. Use this for scheduled tows, transport, and junk cars."
+    "quoteFormNote": "If you're stranded, call instead \u2014 it's faster. Use this for scheduled tows, transport, and junk cars."
   },
   "services": [
     {
