@@ -185,7 +185,7 @@
       "name": "Roadside Assistance",
       "category": "roadside",
       "description": "Jump starts\nLockouts\nFlat tire changes\nFuel runs\nFaster and cheaper than putting the car on the truck",
-      "image": ""
+      "image": "/clients/finish-line-towing/roadside-assistance.jpg"
     },
     {
       "name": "Motorcycle Towing",
@@ -203,7 +203,7 @@
       "name": "Junk Car Removal",
       "category": "junk-cars",
       "description": "Dead vehicles taken off your hands\nCleared off your lawn or driveway\nCall with the year, make and condition",
-      "image": ""
+      "image": "/clients/finish-line-towing/junk-car.jpg"
     }
   ]
 }

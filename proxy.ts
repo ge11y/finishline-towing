@@ -1,6 +1,11 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { ADMIN_AUTH_COOKIE, verifyAdminSessionToken } from "@/lib/admin-auth";
+import {
+  PREVIEW_COOKIE,
+  isPreviewGateEnabled,
+  validPreviewToken,
+} from "@/lib/preview-gate";
 
 function isPublicAsset(pathname: string) {
   return (
@@ -17,6 +22,11 @@ function isPublicAsset(pathname: string) {
   );
 }
 
+function withNoIndex(response: NextResponse) {
+  response.headers.set("x-robots-tag", "noindex, nofollow");
+  return response;
+}
+
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -24,42 +34,70 @@ export async function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const isAdminPage = pathname === "/admin" || pathname.startsWith("/admin/")
-  const isAdminApi = pathname.startsWith("/api/admin/")
-  const isAdminAuthPath = pathname === "/admin/login" || pathname.startsWith("/api/admin/auth/")
+  // Preview unlock + gate must stay reachable while the storefront is locked.
+  if (pathname === "/api/preview-unlock" || pathname === "/api/preview-gate") {
+    return withNoIndex(NextResponse.next());
+  }
+
+  const isAdminPage = pathname === "/admin" || pathname.startsWith("/admin/");
+  const isAdminApi = pathname.startsWith("/api/admin/");
+  const isAdminAuthPath =
+    pathname === "/admin/login" || pathname.startsWith("/api/admin/auth/");
 
   if (isAdminPage || isAdminApi) {
-    // Only verify the (HMAC) session token on admin surfaces — keeps the async
-    // crypto off the hot path for public pages.
+    // Keep /admin* on existing admin auth — do not require the preview cookie.
     const hasAdminSession = await verifyAdminSessionToken(
       request.cookies.get(ADMIN_AUTH_COOKIE)?.value,
-    )
+    );
 
     if (!hasAdminSession && !isAdminAuthPath) {
       if (isAdminApi) {
-        return NextResponse.json({ ok: false, error: "Admin sign-in required." }, { status: 401 })
+        return NextResponse.json(
+          { ok: false, error: "Admin sign-in required." },
+          { status: 401 },
+        );
       }
 
-      const loginUrl = new URL("/admin/login", request.url)
-      loginUrl.searchParams.set("next", pathname)
-      return NextResponse.redirect(loginUrl)
+      const loginUrl = new URL("/admin/login", request.url);
+      loginUrl.searchParams.set("next", pathname);
+      return NextResponse.redirect(loginUrl);
     }
 
-    // The owner's front door is his own dashboard, not the storefront one. He
-    // bookmarks /admin on his phone; this is what he should get.
     if (hasAdminSession && pathname === "/admin") {
-      return NextResponse.redirect(new URL("/admin/overview", request.url))
+      return NextResponse.redirect(new URL("/admin/overview", request.url));
     }
 
     if (hasAdminSession && pathname === "/admin/login") {
-      return NextResponse.redirect(new URL("/admin", request.url))
+      return NextResponse.redirect(new URL("/admin", request.url));
     }
 
     return NextResponse.next();
   }
 
-  // Storefront is open (no age/access gate): the factory home and the Aurora
-  // demo store are public marketing surfaces.
+  // Elite preview gate — default ON when unset. Not the leftover 21+ gateway.
+  if (isPreviewGateEnabled()) {
+    const secret = process.env.PREVIEW_SECRET;
+    if (!secret) {
+      return new NextResponse("Preview gateway is not configured.", {
+        status: 503,
+        headers: {
+          "content-type": "text/plain",
+          "x-robots-tag": "noindex, nofollow",
+        },
+      });
+    }
+
+    const token = request.cookies.get(PREVIEW_COOKIE)?.value;
+    if (!(await validPreviewToken(token, secret))) {
+      const gateUrl = request.nextUrl.clone();
+      gateUrl.pathname = "/api/preview-gate";
+      // Preserve ?bad=1 after a failed unlock redirect to /
+      return withNoIndex(NextResponse.rewrite(gateUrl));
+    }
+
+    return withNoIndex(NextResponse.next());
+  }
+
   return NextResponse.next();
 }
 
