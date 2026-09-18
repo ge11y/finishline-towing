@@ -42,6 +42,19 @@ export type ServiceSiteBadge = {
 }
 
 /**
+ * Slim press/feature strip on the public homepage. Empty url or label hides it.
+ * Client files supply the outlet name and article title — never invent either.
+ */
+export type ServiceSiteFeaturedNotice = {
+  /** e.g. "As featured in Tow Industry Week" */
+  label: string
+  /** Optional article title shown beside the label. */
+  title: string
+  url: string
+  linkLabel: string
+}
+
+/**
  * A differentiator line, optionally carrying its own symbol.
  *
  * `icon` is a name from SERVICE_SITE_ICONS — never a path or a component — so
@@ -120,6 +133,8 @@ export type ServiceSiteSettings = {
   quoteFormTitle: string
   /** Small print under the hero quote form. */
   quoteFormNote: string
+  /** Homepage press strip. Hidden when url or label is empty. */
+  featuredNotice: ServiceSiteFeaturedNotice
 }
 
 export const DEFAULT_SERVICE_SITE: ServiceSiteSettings = {
@@ -138,6 +153,12 @@ export const DEFAULT_SERVICE_SITE: ServiceSiteSettings = {
   galleryImages: [],
   quoteFormTitle: 'Request a quote',
   quoteFormNote: '',
+  featuredNotice: {
+    label: '',
+    title: '',
+    url: '',
+    linkLabel: '',
+  },
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -223,5 +244,25 @@ export function normalizeServiceSite(value: unknown, fallback: ServiceSiteSettin
     }),
     quoteFormTitle: str(record, 'quoteFormTitle', fallback.quoteFormTitle) || DEFAULT_SERVICE_SITE.quoteFormTitle,
     quoteFormNote: str(record, 'quoteFormNote', fallback.quoteFormNote),
+    featuredNotice: normalizeFeaturedNotice(record?.featuredNotice, fallback.featuredNotice),
+  }
+}
+
+export function hasFeaturedNotice(notice: ServiceSiteFeaturedNotice | undefined | null): notice is ServiceSiteFeaturedNotice {
+  return Boolean(notice?.url && notice?.label)
+}
+
+function normalizeFeaturedNotice(
+  value: unknown,
+  fallback: ServiceSiteFeaturedNotice,
+): ServiceSiteFeaturedNotice {
+  if (!isRecord(value)) return fallback
+  const url = str(value, 'url', fallback.url)
+  const label = str(value, 'label', fallback.label)
+  return {
+    label,
+    title: str(value, 'title', fallback.title),
+    url,
+    linkLabel: str(value, 'linkLabel', fallback.linkLabel) || (url && label ? 'Read the feature' : ''),
   }
 }

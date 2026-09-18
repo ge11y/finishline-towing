@@ -66,7 +66,13 @@ Photos and the logo live in `public/clients/<slug>/` and are referenced by path.
     "badges": [{ "name": "ISA Certified", "logoUrl": "" }],
     "galleryImages": [{ "src": "/clients/h-and-h-tree/job-1.jpg", "alt": "…" }],
     "quoteFormTitle": "Request a free estimate",
-    "quoteFormNote": "No obligation."
+    "quoteFormNote": "No obligation.",
+    "featuredNotice": {                         // optional homepage press strip
+      "label": "As featured in Example Trade Weekly",
+      "title": "Article title",
+      "url": "https://…",
+      "linkLabel": "Read the feature"
+    }
   },
 
   "services": [                               // 4–6; each gets its own page

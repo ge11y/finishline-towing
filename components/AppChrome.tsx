@@ -12,6 +12,7 @@ import type { BrandSettings, FactoryThemePresetId } from '@/lib/admin-settings'
 import type { PublicFactorySettings } from '@/lib/public-factory-settings'
 import { getPublicThemeClass, getPublicThemeStyle } from '@/lib/public-theme'
 import { ServiceHeader, type ServiceNavLink } from '@/components/service/ServiceHeader'
+import { FeaturedNotice } from '@/components/service/FeaturedNotice'
 import { CallBar } from '@/components/service/CallBar'
 import { ScrollReveal } from '@/components/ScrollReveal'
 
@@ -113,7 +114,12 @@ export function AppChrome({
             <>
               <PromoExperience enabled={publicSettings.moduleSettings.promos} />
               {isServiceChrome ? (
-                <ServiceHeader settings={publicSettings} serviceLinks={serviceLinks} />
+                <>
+                  <ServiceHeader settings={publicSettings} serviceLinks={serviceLinks} />
+                  {pathname === '/site' ? (
+                    <FeaturedNotice notice={publicSettings.serviceSite.featuredNotice} />
+                  ) : null}
+                </>
               ) : (
                 <NavBar settings={publicSettings} />
               )}

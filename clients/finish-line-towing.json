@@ -170,7 +170,13 @@
       }
     ],
     "quoteFormTitle": "Request a tow",
-    "quoteFormNote": "If you're stranded, call instead \u2014 it's faster. Use this for scheduled tows, transport, and junk cars."
+    "quoteFormNote": "If you're stranded, call instead \u2014 it's faster. Use this for scheduled tows, transport, and junk cars.",
+    "featuredNotice": {
+      "label": "As featured in Tow Industry Week",
+      "title": "A Calendar Dream on Wheels",
+      "url": "https://towindustryweek.com/index.php/13-tow-illustrated/9822-a-calendar-dream-on-wheels",
+      "linkLabel": "Read the feature"
+    }
   },
   "services": [
     {
