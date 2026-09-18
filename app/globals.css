@@ -2055,6 +2055,70 @@ a.admin-list-row:focus-visible {
 
 .hs-page { color: var(--text-primary); }
 
+/* Slim homepage press strip — under the header, above the hero. Hidden
+   entirely when serviceSite.featuredNotice is empty. */
+.hs-featured {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+}
+.hs-featured-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 8px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 14px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.hs-featured-icon {
+  flex: none;
+  color: var(--accent-400, var(--text-secondary));
+  transform: translateY(2px);
+}
+.hs-featured-copy {
+  margin: 0;
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 0.55em;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  color: var(--text-secondary);
+}
+.hs-featured-copy strong {
+  font-weight: 650;
+  color: var(--text-primary);
+  letter-spacing: 0.01em;
+}
+.hs-featured-title {
+  color: var(--text-muted);
+}
+.hs-featured-title::before {
+  content: "·";
+  margin-right: 0.65em;
+  color: var(--text-muted);
+}
+.hs-featured-link {
+  flex: none;
+  font-size: 0.86rem;
+  font-weight: 650;
+  color: var(--accent-400, var(--amber));
+  text-decoration: none;
+  white-space: nowrap;
+}
+.hs-featured-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+@media (max-width: 640px) {
+  .hs-featured-inner { padding: 8px 16px 10px; gap: 6px 10px; }
+  .hs-featured-title::before { display: none; }
+  .hs-featured-copy { gap: 2px 0; flex-direction: column; align-items: center; }
+}
+
 /* Signature: stacked-stone coursing — three offset joint lines, like a
    dry-laid wall's courses. Derived from the brand primary at low tint. */
 .hs-course {
@@ -2774,6 +2838,27 @@ a.admin-list-row:focus-visible {
   color: var(--sign-legend);
   border: 2px solid color-mix(in srgb, var(--sign-legend) 70%, transparent);
   border-radius: 4px;
+}
+
+/* Press strip sits under the header chevron. */
+.factory-theme-road_conspicuity .hs-featured {
+  background: color-mix(in srgb, var(--sign-field) 92%, #000);
+  border-bottom: 1px solid color-mix(in srgb, var(--sign-legend) 16%, transparent);
+  padding-top: 14px;
+}
+.factory-theme-road_conspicuity .hs-featured-icon,
+.factory-theme-road_conspicuity .hs-featured-copy,
+.factory-theme-road_conspicuity .hs-featured-title {
+  color: color-mix(in srgb, var(--sign-legend) 78%, var(--sign-field));
+}
+.factory-theme-road_conspicuity .hs-featured-copy strong {
+  color: var(--sign-legend);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.factory-theme-road_conspicuity .hs-featured-link {
+  color: var(--sign-hivis);
+  font-weight: 700;
 }
 
 /* --- Route-marker nav ------------------------------------------------------ */
