@@ -11,8 +11,8 @@ export function FeaturedNotice({ notice }: { notice?: ServiceSiteFeaturedNotice 
   return (
     <aside className="hs-featured" aria-label={notice.label}>
       <div className="hs-featured-inner">
-        <Newspaper className="hs-featured-icon" size={15} strokeWidth={2} aria-hidden="true" />
         <p className="hs-featured-copy">
+          <Newspaper className="hs-featured-icon" size={15} strokeWidth={2} aria-hidden="true" />
           <strong>{notice.label}</strong>
           {notice.title ? <span className="hs-featured-title">{notice.title}</span> : null}
         </p>

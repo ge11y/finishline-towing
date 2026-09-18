@@ -2075,6 +2075,7 @@ a.admin-list-row:focus-visible {
 .hs-featured-icon {
   flex: none;
   color: var(--accent-400, var(--text-secondary));
+  transform: translateY(2px);
 }
 .hs-featured-copy {
   margin: 0;
@@ -2082,7 +2083,7 @@ a.admin-list-row:focus-visible {
   align-items: baseline;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0 0.65em;
+  gap: 0 0.55em;
   font-size: 0.86rem;
   line-height: 1.35;
   color: var(--text-secondary);
