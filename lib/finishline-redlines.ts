@@ -8,9 +8,10 @@
 
 import type { PublicFactorySettings } from '@/lib/public-factory-settings'
 import type { Product } from '@/lib/types'
+import { LABELED_HOURS, PROOF_POINTS, SUPPORT_NOTE } from '@/lib/contact'
 
 export const ROUND_LOGO = '/clients/finish-line-towing/logo-round.png'
-export const HERO_BANNER = '/clients/finish-line-towing/work-suv-loaded.jpg'
+export const HERO_BANNER = '/clients/finish-line-towing/hero-racetruck-v3.jpg'
 export const TOWING_SECTION_PHOTO = '/clients/finish-line-towing/work-camaro-randys.jpg'
 export const RECOVERY_PHOTO = '/clients/finish-line-towing/gallery-2.jpg'
 
@@ -67,8 +68,7 @@ const ABOUT_COPY =
 const SUBHEAD =
   '24/7 flatbed towing and recovery out of North Haverhill, New Hampshire. Serving the Twin States.'
 
-const PROOF =
-  '24/7 (603) 615-6750 · Serving the Twin States since 2012 · Owner-operated · USDOT 3693451'
+const PROOF = PROOF_POINTS
 
 export function applyCatalogRedlines<T extends Pick<Product, 'slug' | 'summaryShort' | 'summaryFull' | 'image'>>(
   products: T[],
@@ -100,11 +100,9 @@ export function orderServicesForDisplay<T extends { slug: string }>(services: T[
 }
 
 export function applyPublicRedlines(settings: PublicFactorySettings): PublicFactorySettings {
-  const hours = settings.serviceSite.businessHours
-  const has247 = hours.some((row) => /24\s*\/\s*7/i.test(`${row.days} ${row.hours}`))
-
   return {
     ...settings,
+    supportNote: SUPPORT_NOTE,
     brandSettings: {
       ...settings.brandSettings,
       logoUrl: ROUND_LOGO,
@@ -116,15 +114,22 @@ export function applyPublicRedlines(settings: PublicFactorySettings): PublicFact
       homepageHeadline: '24/7 Flatbed Towing.',
       homepageSubheadline: SUBHEAD,
       proofPoints: PROOF,
-      primaryCtaLabel: 'Call now — 24/7',
+      primaryCtaLabel: 'Call day cell',
       aboutCopy: ABOUT_COPY,
     },
     serviceSite: {
       ...settings.serviceSite,
       serviceAreaLine: settings.serviceSite.serviceAreaLine || 'North Haverhill, NH · Twin States',
-      businessHours: has247
-        ? hours
-        : [{ days: '24/7', hours: '(603) 615-6750' }, ...hours],
+      businessHours: LABELED_HOURS.map((row) => ({ days: row.days, hours: row.hours })),
+      ctaCards: settings.serviceSite.ctaCards.map((card) =>
+        card.title === 'Broken down right now?'
+          ? {
+              ...card,
+              body: SUPPORT_NOTE,
+              actionLine: 'Day cell (603) 252-5568 · Night pager (603) 615-6750',
+            }
+          : card,
+      ),
     },
   }
 }

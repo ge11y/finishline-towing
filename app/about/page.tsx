@@ -4,6 +4,8 @@ import { Check, ClipboardCheck, FlaskConical, PackageCheck, ShieldCheck } from '
 import { getLiveCatalogProducts } from '@/lib/catalog-live'
 import { getPublicFactorySettings } from '@/lib/public-factory-settings'
 import { WhyIcon } from '@/components/WhyIcon'
+import { DualPhone } from '@/components/service/DualPhone'
+import { SERVICE_247 } from '@/lib/contact'
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getPublicFactorySettings()
@@ -38,7 +40,6 @@ function ServiceAboutPage({
   settings: Awaited<ReturnType<typeof getPublicFactorySettings>>
   services: { slug: string; displayName: string }[]
 }) {
-  const phone = settings.companyPhone.trim()
   const proofPoints = settings.siteContent.proofPoints
     .split('·')
     .map((point) => point.trim())
@@ -52,11 +53,8 @@ function ServiceAboutPage({
           <h2>About {settings.businessName}</h2>
         </div>
         <p className="hs-intro-copy">{settings.siteContent.aboutCopy}</p>
-        {phone ? (
-          <p className="hs-intro-copy hs-about-247">
-            <a href={`tel:${phone.replace(/[^+\d]/g, '')}`}>24/7 {phone}</a>
-          </p>
-        ) : null}
+        <p className="hs-intro-copy hs-about-247">{SERVICE_247} — which number depends on the time.</p>
+        <DualPhone variant="inline" />
       </section>
 
       {proofPoints.length ? (
@@ -110,11 +108,7 @@ function ServiceAboutPage({
           <Link href="/contact" className="hs-btn-primary">
             Request an estimate
           </Link>
-          {phone ? (
-            <a href={`tel:${phone.replace(/[^+\d]/g, '')}`} className="hs-btn-outline">
-              Call {phone}
-            </a>
-          ) : null}
+          <DualPhone variant="inline" />
         </div>
       </section>
     </div>

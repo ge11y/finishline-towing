@@ -11,7 +11,7 @@
     "accent": "#9AD201",
     "background": "#F4F6F8",
     "logo": "/clients/finish-line-towing/logo-round.png",
-    "hero": "/clients/finish-line-towing/work-suv-loaded.jpg",
+    "hero": "/clients/finish-line-towing/hero-racetruck-v3.jpg",
     "fontPreset": "road_sign",
     "mascot": "/clients/finish-line-towing/mascot.png",
     "placeholder": "/brand/placeholder.png"
@@ -21,7 +21,7 @@
     "publicEmail": "finishlinetowing21@gmail.com",
     "phone": "(603) 615-6750",
     "address": "585 Benton Road, North Haverhill, NH 03774",
-    "supportNote": "Days: call Josh\u2019s cell (603) 252-5568. After 8pm until 5am, call the pager (603) 615-6750.",
+    "supportNote": "24/7 service. Day / cell (603) 252-5568 (daytime through ~8pm). Night / pager (603) 615-6750 (8pm\u20135am).",
     "socials": [
       {
         "label": "Facebook",
@@ -34,12 +34,14 @@
     "headline": "24/7 Flatbed Towing.",
     "subheadline": "24/7 flatbed towing and recovery out of North Haverhill, New Hampshire. Serving the Twin States.",
     "proofPoints": [
-      "24/7 (603) 615-6750",
+      "24/7 service",
+      "Day cell (603) 252-5568",
+      "Night pager 8pm\u20135am (603) 615-6750",
       "Serving the Twin States since 2012",
       "Owner-operated",
       "USDOT 3693451"
     ],
-    "primaryCta": "Call now \u2014 24/7",
+    "primaryCta": "Call day cell",
     "secondaryCta": "Request a tow",
     "about": "Finish Line Towing is Joshua Aldrich. Local, owner-operated flatbed towing and recovery out of North Haverhill \u2014 serving the Twin States since 2012. The truck rolls 24/7; the phone goes to him, not a call center. In his words: \"I started in this business as an opportunity to provide for our area, with services much needed.\"",
     "faq": [
@@ -73,16 +75,12 @@
     "serviceAreaTowns": [],
     "businessHours": [
       {
-        "days": "24/7",
-        "hours": "(603) 615-6750"
+        "days": "Day \u00b7 cell",
+        "hours": "(603) 252-5568 \u00b7 daytime through ~8pm"
       },
       {
-        "days": "Every day \u00b7 daytime",
-        "hours": "Cell (603) 252-5568"
-      },
-      {
-        "days": "Every night \u00b7 8pm\u20135am",
-        "hours": "Pager (603) 615-6750"
+        "days": "Night \u00b7 pager",
+        "hours": "(603) 615-6750 \u00b7 8pm\u20135am"
       }
     ],
     "whyChooseUs": [
@@ -115,8 +113,8 @@
     "ctaCards": [
       {
         "title": "Broken down right now?",
-        "body": "Don't fill out a form. Days: cell (603) 252-5568. After 8pm\u20135am: pager (603) 615-6750.",
-        "actionLine": "(603) 615-6750"
+        "body": "Don't fill out a form. Day cell (603) 252-5568 through ~8pm. Night pager (603) 615-6750 from 8pm\u20135am.",
+        "actionLine": "Day cell (603) 252-5568 \u00b7 Night pager (603) 615-6750"
       },
       {
         "title": "Classic, lowered, or all-wheel drive?",
