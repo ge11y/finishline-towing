@@ -52,6 +52,11 @@ function ServiceAboutPage({
           <h2>About {settings.businessName}</h2>
         </div>
         <p className="hs-intro-copy">{settings.siteContent.aboutCopy}</p>
+        {phone ? (
+          <p className="hs-intro-copy hs-about-247">
+            <a href={`tel:${phone.replace(/[^+\d]/g, '')}`}>24/7 {phone}</a>
+          </p>
+        ) : null}
       </section>
 
       {proofPoints.length ? (

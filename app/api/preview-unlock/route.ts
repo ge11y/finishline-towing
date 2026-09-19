@@ -59,5 +59,5 @@ export async function POST(request: Request) {
     `Max-Age=${PREVIEW_COOKIE_DAYS * 86400}`,
   ].join("; ");
 
-  return seeOther("/" + frag, cookie);
+  return seeOther("/site" + frag, cookie);
 }

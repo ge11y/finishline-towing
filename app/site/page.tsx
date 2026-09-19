@@ -9,6 +9,12 @@ import { QuoteForm } from '@/components/service/QuoteForm'
 import { BusinessSchema } from '@/components/BusinessSchema'
 import { WhyIcon } from '@/components/WhyIcon'
 import { parseFaqCopy } from '@/lib/service-mode'
+import {
+  HIDE_LEARN_MORE_SLUGS,
+  isTitleRequiredLine,
+  orderServicesForDisplay,
+  splitServiceLines,
+} from '@/lib/finishline-redlines'
 
 /* ------------------------------------------------------------------
  * /site — home-service client landing (settings-driven, zero client
@@ -54,7 +60,7 @@ export default async function HomeServiceLandingPage() {
   ])
 
   const { siteContent, catalogSettings, brandSettings, serviceSite } = settings
-  const services = products.filter((product) => product.publicVisible !== false)
+  const services = orderServicesForDisplay(products.filter((product) => product.publicVisible !== false))
   const heroImage = brandSettings.heroLogoUrl || services[0]?.image || ''
   const proofPoints = siteContent.proofPoints
     .split('·')
@@ -80,9 +86,23 @@ export default async function HomeServiceLandingPage() {
         </div>
         <div className="hs-hero-inner">
           <div className="hs-hero-copy">
-            <p className="hs-kicker">{settings.businessName}</p>
+            <p className="hs-kicker">Leading the way.</p>
             <h1>{siteContent.homepageHeadline}</h1>
             <p className="hs-hero-sub">{siteContent.homepageSubheadline}</p>
+            {services.length ? (
+              <ul className="hs-hero-grid" aria-label="Services">
+                {services.map((service) => (
+                  <li key={service.slug}>
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className={service.slug === 'flatbed-towing' ? 'is-featured' : undefined}
+                    >
+                      {service.displayName}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
             {heroChecks.length ? (
               <ul className="hs-hero-checks">
                 {heroChecks.map((item) => (
@@ -122,17 +142,6 @@ export default async function HomeServiceLandingPage() {
           </ul>
         </div>
       ) : null}
-
-      {/* Credibility — who runs this crew and how they work. */}
-      <section className="hs-section hs-intro">
-        <div className="hs-section-head">
-          <h2>Why customers call us</h2>
-        </div>
-        <p className="hs-intro-copy">{siteContent.aboutCopy}</p>
-        <p className="hs-intro-copy hs-intro-single">
-          Most of the work comes from neighbors, shops, and people who call him directly.
-        </p>
-      </section>
 
       {/* Differentiators — the objection-killers, on a dark panel. */}
       {serviceSite.whyChooseUs.length ? (
@@ -215,10 +224,26 @@ export default async function HomeServiceLandingPage() {
               ) : null}
               <div className="hs-row-body">
                 <h3>{service.displayName}</h3>
-                <p>{service.summaryShort}</p>
-                <Link href={`/services/${service.slug}`} className="hs-btn-outline">
-                  Learn more
-                </Link>
+                {(() => {
+                  const lines = splitServiceLines(service.summaryShort)
+                  if (lines.length > 1) {
+                    return (
+                      <ul className="hs-row-points">
+                        {lines.map((line) => (
+                          <li key={line} className={isTitleRequiredLine(line) ? 'hs-disclaimer' : undefined}>
+                            {line}
+                          </li>
+                        ))}
+                      </ul>
+                    )
+                  }
+                  return <p>{service.summaryShort}</p>
+                })()}
+                {HIDE_LEARN_MORE_SLUGS.has(service.slug) ? null : (
+                  <Link href={`/services/${service.slug}`} className="hs-btn-outline">
+                    Learn more
+                  </Link>
+                )}
               </div>
             </article>
           ))}

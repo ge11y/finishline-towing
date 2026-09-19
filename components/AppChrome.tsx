@@ -73,7 +73,8 @@ export function AppChrome({
   const isAdminRoute = pathname?.startsWith('/admin')
   // The factory surfaces (marketing home + client application) are ge11yz's own
   // brand/chrome; every other public route is the Demo Store demo store.
-  const isFactoryHome = pathname === '/' || pathname === '/apply' || Boolean(pathname?.startsWith('/demo'))
+  const isPublicLanding = pathname === '/' || pathname === '/coming-soon'
+  const isFactoryHome = pathname === '/apply' || Boolean(pathname?.startsWith('/demo'))
   void hasGatewayAcceptance
   const publicThemeClass = getPublicThemeClass(publicSettings.brandSettings.themePreset)
   const publicThemeStyle = getPublicThemeStyle(publicSettings.brandSettings)
@@ -90,6 +91,19 @@ export function AppChrome({
     return (
       <CartProvider>
         <main style={{ flex: 1 }}>{children}</main>
+      </CartProvider>
+    )
+  }
+
+  if (isPublicLanding) {
+    return (
+      <CartProvider>
+        <div
+          className={`factory-public-shell ${publicThemeClass}`}
+          style={{ ...publicThemeStyle, ...publicFontStyle, ...mascotStyle, display: 'flex', minHeight: '100vh', flexDirection: 'column' }}
+        >
+          <main style={{ flex: 1 }}>{children}</main>
+        </div>
       </CartProvider>
     )
   }

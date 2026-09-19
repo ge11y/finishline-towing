@@ -55,8 +55,8 @@ export function ServiceHeader({
     <a href={telHref(phone)} className="hs-hdr-phone">
       <Phone size={17} aria-hidden="true" />
       <span>
-        <span className="hs-hdr-phone-label">Stranded? Call now!</span>
-        <strong>{phone}</strong>
+        <span className="hs-hdr-phone-label">24/7</span>
+        <strong>24/7 {phone}</strong>
       </span>
     </a>
   ) : null

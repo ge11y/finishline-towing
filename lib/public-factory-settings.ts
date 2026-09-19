@@ -1,4 +1,5 @@
 import { getAdminSettings } from '@/lib/admin-settings-server'
+import { applyPublicRedlines } from '@/lib/finishline-redlines'
 import type { BrandSettings, BusinessSocialLinkSettings, CatalogSettings, ModuleSettings, ServiceSiteSettings, SiteContentSettings } from '@/lib/admin-settings'
 
 export type PublicFactorySettings = {
@@ -19,7 +20,7 @@ export type PublicFactorySettings = {
 export async function getPublicFactorySettings(): Promise<PublicFactorySettings> {
   const settings = await getAdminSettings()
 
-  return {
+  return applyPublicRedlines({
     businessName: settings.businessDetails.businessName,
     publicSiteUrl: settings.businessDetails.publicSiteUrl,
     companyEmail: settings.businessDetails.companyEmail,
@@ -32,5 +33,5 @@ export async function getPublicFactorySettings(): Promise<PublicFactorySettings>
     moduleSettings: settings.moduleSettings,
     catalogSettings: settings.catalogSettings,
     serviceSite: settings.serviceSite,
-  }
+  })
 }

@@ -20,8 +20,8 @@ export function CallBar({ phone }: { phone: string }) {
     <a href={`tel:${phone.replace(/[^+\d]/g, '')}`} className="hs-callbar" data-testid="call-bar">
       <Phone size={19} aria-hidden="true" />
       <span>
-        <strong>Stranded? Call now!</strong>
-        <small>{phone}</small>
+        <strong>24/7 {phone}</strong>
+        <small>Call now</small>
       </span>
     </a>
   )

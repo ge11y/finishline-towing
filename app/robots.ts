@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { isPreviewGateEnabled } from '@/lib/preview-gate'
 
 function siteUrl(): string {
   const explicit = process.env.SITE_URL?.trim()
@@ -14,8 +15,10 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
-      allow: '/',
-      disallow: ['/admin', '/admin/', '/api/'],
+      allow: ['/', '/coming-soon'],
+      disallow: isPreviewGateEnabled()
+        ? ['/admin', '/admin/', '/api/', '/site', '/services', '/merch', '/racing']
+        : ['/admin', '/admin/', '/api/'],
     },
     sitemap: `${siteUrl()}/sitemap.xml`,
   }

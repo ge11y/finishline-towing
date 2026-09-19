@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { getLiveCatalogDisplayProducts } from '@/lib/catalog-live'
+import { isPreviewGateEnabled } from '@/lib/preview-gate'
 
 function siteUrl(): string {
   const explicit = process.env.SITE_URL?.trim()
@@ -18,8 +19,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteUrl()
   const now = new Date()
 
+  const comingSoon: MetadataRoute.Sitemap = [
+    { url: `${base}/`, lastModified: now, changeFrequency: 'weekly', priority: 1 },
+    { url: `${base}/coming-soon`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+  ]
+
+  if (isPreviewGateEnabled()) {
+    return comingSoon
+  }
+
   const fixed: MetadataRoute.Sitemap = [
-    { url: `${base}/site`, lastModified: now, changeFrequency: 'weekly', priority: 1 },
+    ...comingSoon,
+    { url: `${base}/site`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${base}/service-area`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${base}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/racing`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },

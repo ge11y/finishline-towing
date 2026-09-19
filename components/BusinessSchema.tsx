@@ -15,10 +15,7 @@ import { CELL_PHONE } from '@/lib/contact'
  * markup cannot drift from the page a customer is reading — including the
  * phone number, which is still the open question on the citation side.
  *
- * Hours are given as 00:00–23:59. He answers around the clock but the site
- * says 23.5 hours a day, and claiming a flat 24/7 in machine-readable markup
- * while the page beside it says otherwise is the kind of small dishonesty
- * that is trivially checkable.
+ * Hours are given as 00:00–23:59 to match the public 24/7 line.
  */
 
 const SERVICES = [
@@ -65,7 +62,7 @@ function siteUrl(): string {
   return 'https://finishline-towing.vercel.app'
 }
 
-export async function BusinessSchema() {
+export async function BusinessSchema({ pageUrl = '/site' }: { pageUrl?: string } = {}) {
   const settings = await getPublicFactorySettings()
   const base = siteUrl()
 
@@ -76,7 +73,7 @@ export async function BusinessSchema() {
     name: 'Finish Line Towing, LLC',
     alternateName: settings.businessName,
     description: settings.siteContent.homepageSubheadline,
-    url: `${base}/site`,
+    url: `${base}${pageUrl === '/' ? '/' : pageUrl}`,
     telephone: settings.companyPhone,
     // Both lines, so the listing Google builds from this page matches the
     // number on the truck as well as the one the site leads with. `telephone`

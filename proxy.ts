@@ -6,6 +6,7 @@ import {
   isPreviewGateEnabled,
   validPreviewToken,
 } from "@/lib/preview-gate";
+import { isComingSoonFrontDoor, isPublicComingSoonPath } from "@/lib/finishline-redlines";
 
 function isPublicAsset(pathname: string) {
   return (
@@ -36,7 +37,12 @@ export async function proxy(request: NextRequest) {
 
   // Preview unlock + gate must stay reachable while the storefront is locked.
   if (pathname === "/api/preview-unlock" || pathname === "/api/preview-gate") {
-    return withNoIndex(NextResponse.next());
+    return NextResponse.next();
+  }
+
+  // Password-free Coming Soon URL for GBP if they want a path that is never gated.
+  if (isPublicComingSoonPath(pathname)) {
+    return NextResponse.next();
   }
 
   const isAdminPage = pathname === "/admin" || pathname.startsWith("/admin/");
@@ -78,6 +84,12 @@ export async function proxy(request: NextRequest) {
   if (isPreviewGateEnabled()) {
     const secret = process.env.PREVIEW_SECRET;
     if (!secret) {
+      // Front door must still be Coming Soon for GBP even if unlock is unconfigured.
+      if (isComingSoonFrontDoor(pathname)) {
+        const gateUrl = request.nextUrl.clone();
+        gateUrl.pathname = "/api/preview-gate";
+        return NextResponse.rewrite(gateUrl);
+      }
       return new NextResponse("Preview gateway is not configured.", {
         status: 503,
         headers: {
@@ -91,7 +103,11 @@ export async function proxy(request: NextRequest) {
     if (!(await validPreviewToken(token, secret))) {
       const gateUrl = request.nextUrl.clone();
       gateUrl.pathname = "/api/preview-gate";
-      // Preserve ?bad=1 after a failed unlock redirect to /
+      // `/` is the GBP front door — Coming Soon, indexable. Other locked
+      // routes stay unlisted.
+      if (pathname === "/") {
+        return NextResponse.rewrite(gateUrl);
+      }
       return withNoIndex(NextResponse.rewrite(gateUrl));
     }
 

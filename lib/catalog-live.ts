@@ -14,6 +14,7 @@ import { getCatalogAssetSnapshots, getCatalogImageProxyUrl, getCatalogUploadedIm
 import { getSupabaseAdmin } from '@/lib/supabase-admin'
 import { applyPromosToProduct, getActiveSitePromos } from '@/lib/site-promos'
 import { getInventoryStatusFromCount } from '@/lib/inventory-state'
+import { applyCatalogRedlines } from '@/lib/finishline-redlines'
 
 /**
  * The factory's stand-in graphic reads "PLACEHOLDER — Elite Solutions" over a
@@ -846,7 +847,7 @@ export const getLiveCatalogProducts = cache(async (): Promise<Product[]> => {
       ),
     )
 
-  return harmonizeFamilyCoAs(harmonizeFamilyImages(products))
+  return applyCatalogRedlines(harmonizeFamilyCoAs(harmonizeFamilyImages(products)))
 })
 
 export const getLiveCatalogDisplayProducts = cache(async (): Promise<Product[]> => {

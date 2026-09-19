@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function RootPage() {
+export default async function ComingSoonPage() {
   const settings = await getPublicFactorySettings()
   return <ComingSoonLanding settings={settings} />
 }
