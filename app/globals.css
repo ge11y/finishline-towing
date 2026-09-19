@@ -4976,13 +4976,16 @@ img[src*="placeholder"] {
   color: #0B1220;
 }
 /* Header chips: label + number on one line, hours on a second short line.
-   Sized to the Quote / menu control height so the bar reads as one row. */
-.hs-hdr-actions .hs-dual--header {
-  display: flex;
-  flex: 0 0 auto;
-  align-items: stretch;
-  gap: 8px;
-  min-width: max-content;
+   Sized to the Quote / menu control height so the bar reads as one row.
+   Desktop-only — the 860px rule hides this node so Quote stays on the bar. */
+@media (min-width: 861px) {
+  .hs-hdr-actions .hs-dual--header {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: stretch;
+    gap: 8px;
+    min-width: max-content;
+  }
 }
 .hs-dual--header .hs-dual-phone {
   flex: 0 0 auto;
