@@ -2630,12 +2630,15 @@ a.admin-list-row:focus-visible {
   letter-spacing: -0.015em; color: var(--accent-400); white-space: nowrap;
 }
 
-/* Right: the two actions, then the menu */
-.hs-hdr-actions { flex: 1 1 0; min-width: 0; display: flex; align-items: center; justify-content: flex-end; gap: 16px; }
+/* Right: Quote + phone chips + menu, one height language. Actions size to
+   their content so the dual chips cannot shrink into stacked letter columns. */
+.hs-hdr-actions { flex: 0 0 auto; min-width: 0; display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
 .hs-hdr-quote {
   display: inline-flex; align-items: center; justify-content: center; white-space: nowrap;
+  flex: 0 0 auto;
   background: var(--amber); color: #FFFFFF; font-weight: 650; font-size: 1rem;
-  padding: 14px 24px; border-radius: 0.5rem; text-decoration: none;
+  min-height: 46px; padding: 0 18px; border-radius: 0.5rem; text-decoration: none;
+  box-sizing: border-box;
   transition: background 160ms ease;
 }
 .hs-hdr-quote:hover { background: color-mix(in srgb, var(--amber) 84%, #101828); }
@@ -2717,13 +2720,15 @@ a.admin-list-row:focus-visible {
   .hs-hdr-rating-count { display: inline; }
   .hs-hdr-logo { order: 2; }
   .hs-hdr-mark { width: 62px; height: 62px; }
-  .hs-hdr-actions { order: 3; flex: 1 1 auto; }
-  /* The two actions move to their own full-width row below. */
-  .hs-hdr-actions .hs-hdr-quote, .hs-hdr-actions .hs-hdr-phone,
+  .hs-hdr-actions { order: 3; flex: 1 1 auto; gap: 8px; }
+  /* Quote stays on the bar with the menu. Phones drop to a compact dual-row. */
+  .hs-hdr-actions .hs-hdr-phone,
   .hs-hdr-actions .hs-dual { display: none; }
+  .hs-hdr-quote { min-height: 46px; padding: 0 14px; font-size: 0.92rem; }
   .hs-hdr-mobile-actions {
-    display: grid; grid-template-columns: 1fr; gap: 10px;
-    padding: 0 16px 14px; max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr; gap: 8px;
+    /* Extra bottom pad so chips sit above the checkered rail, not on it. */
+    padding: 0 16px 20px; max-width: 1280px; margin: 0 auto;
   }
   .hs-hdr-mobile-actions .hs-hdr-quote { justify-content: center; }
   .hs-hdr-mobile-actions .hs-hdr-phone {
@@ -2839,7 +2844,22 @@ a.admin-list-row:focus-visible {
   background: transparent;
   color: var(--sign-legend);
   border: 2px solid color-mix(in srgb, var(--sign-legend) 70%, transparent);
-  border-radius: 4px;
+  border-radius: 8px;
+  min-height: 46px;
+  padding: 0 16px;
+}
+.factory-theme-road_conspicuity .hs-hdr-menu {
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #0B1220;
+  border: 2px solid color-mix(in srgb, var(--sign-legend) 85%, transparent);
+}
+.factory-theme-road_conspicuity .hs-hdr-menu:hover {
+  background: #FFFFFF;
+  border-color: var(--sign-hivis);
+  color: #0B1220;
 }
 
 /* Press strip sits under the header chevron. */
@@ -3103,26 +3123,23 @@ a.admin-list-row:focus-visible {
 /* Mobile: the call bar owns its own row at thumb scale. Sharing a row with the
    quote button is what pushed the number off-screen. */
 @media (max-width: 860px) {
-  .factory-theme-road_conspicuity .hs-hdr-mobile-actions,
-  .factory-theme-road_conspicuity .hs-topbar-actions {
-    display: flex;
-    flex-wrap: wrap;
+  .factory-theme-road_conspicuity .hs-hdr-mobile-actions {
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 8px;
     min-width: 0;
   }
   .factory-theme-road_conspicuity .hs-hdr-phone,
   .factory-theme-road_conspicuity .hs-topbar-phone {
-    flex: 1 0 100%;
-    order: -1;
     justify-content: center;
     min-width: 0;
-    min-height: 54px;
-    font-size: 1.15rem;
+    min-height: 46px;
+    font-size: 1.02rem;
     white-space: nowrap;
   }
   .factory-theme-road_conspicuity .hs-hdr-quote,
   .factory-theme-road_conspicuity .hs-topbar-quote {
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     justify-content: center;
     min-width: 0;
   }
@@ -3557,6 +3574,7 @@ a.admin-list-row:focus-visible {
   .factory-theme-road_conspicuity .hs-topbar-actions {
     order: 1;
     margin-left: auto;
+    flex: 0 0 auto;
   }
   .factory-theme-road_conspicuity .hs-hdr-inner { gap: 18px; }
 }
@@ -4471,12 +4489,12 @@ img[src*="placeholder"] {
   }
   .factory-theme-road_conspicuity .hs-hdr-quote,
   .factory-theme-road_conspicuity .hs-topbar-quote {
-    min-height: 42px;
+    min-height: 46px;
     padding-top: 0;
     padding-bottom: 0;
     font-size: 0.92rem;
   }
-  .hs-hdr-mobile-actions { padding-bottom: 10px; }
+  .hs-hdr-mobile-actions { padding-bottom: 20px; }
   .hs-service-chrome .hs-hdr-inner { padding-top: 8px; padding-bottom: 8px; }
   /* The label is worth showing at this width now that it says something. */
   .factory-theme-road_conspicuity .hs-hdr-mobile-actions .hs-hdr-phone-label {
@@ -4913,6 +4931,8 @@ img[src*="placeholder"] {
   padding: 10px 12px;
   border-radius: 8px;
 }
+/* Cards: kicker / number / hours stack. Header overrides this into a row. */
+.hs-dual-row { display: contents; }
 .hs-dual-kicker {
   font-size: 0.68rem;
   font-weight: 800;
@@ -4955,8 +4975,39 @@ img[src*="placeholder"] {
   background: #9AD201;
   color: #0B1220;
 }
-.hs-dual--header .hs-dual-phone { padding: 7px 10px; }
-.hs-dual--header .hs-dual-phone strong { font-size: 0.92rem; }
+/* Header chips: label + number on one line, hours on a second short line.
+   Sized to the Quote / menu control height so the bar reads as one row. */
+.hs-hdr-actions .hs-dual--header {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: stretch;
+  gap: 8px;
+  min-width: max-content;
+}
+.hs-dual--header .hs-dual-phone {
+  flex: 0 0 auto;
+  justify-content: center;
+  gap: 1px;
+  min-height: 46px;
+  padding: 5px 12px;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+.hs-dual--header .hs-dual-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  white-space: nowrap;
+}
+.hs-dual--header .hs-dual-kicker {
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+}
+.hs-dual--header .hs-dual-phone strong { font-size: 0.86rem; }
+.hs-dual--header .hs-dual-phone small {
+  font-size: 0.6rem;
+  line-height: 1.2;
+}
 .hs-dual--header .hs-dual-night {
   background: #FFFFFF;
   color: #0B1220;
@@ -4977,8 +5028,33 @@ img[src*="placeholder"] {
   .hs-dual--stack { grid-template-columns: 1fr; }
 }
 
-/* Header dual phones: keep both labels visible on the mobile action row. */
-.hs-hdr-mobile-actions .hs-dual { width: 100%; }
+@media (max-width: 860px) {
+  /* Narrow chips: kicker above the number so the digits never wrap. */
+  .hs-hdr-mobile-actions .hs-dual--header .hs-dual-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .hs-hdr-mobile-actions .hs-dual--header .hs-dual-phone strong { font-size: 0.82rem; }
+  .hs-hdr-mobile-actions .hs-dual--header .hs-dual-phone small {
+    white-space: normal;
+  }
+}
+
+/* Header dual phones: compact dual-row under Quote, not tall stacked cards. */
+.hs-hdr-mobile-actions .hs-dual--header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 8px;
+  min-width: 0;
+}
+.hs-hdr-mobile-actions .hs-dual--header .hs-dual-phone {
+  min-width: 0;
+  width: 100%;
+  min-height: 46px;
+  align-items: flex-start;
+}
 
 /* Call bar is now a two-number dock, not a single 24/7 pager tap. */
 .hs-callbar .hs-dual--callbar {

@@ -13,10 +13,10 @@ export type ServiceNavLink = { slug: string; label: string }
 
 /**
  * Single-row header for home-service clients: proof and geography on the left,
- * the mark centred and large enough to read, and the two conversion actions
- * plus the menu on the right. Services run underneath as tabs on wide screens
- * and collapse into the drawer on phones, where the actions become two
- * full-width buttons instead.
+ * the mark centred and large enough to read, and Quote + dual phone chips +
+ * the menu on the right at one shared height. Services run underneath as tabs
+ * on wide screens and collapse into the drawer on phones, where the phones
+ * sit as a compact dual-row under Quote instead of tall cards.
  */
 export function ServiceHeader({
   settings,
@@ -85,11 +85,8 @@ export function ServiceHeader({
           </div>
         </div>
 
-        {/* Phones: both actions as full-width buttons under the header row. */}
-        <div className="hs-hdr-mobile-actions">
-          {quoteLink}
-          {phoneLinks}
-        </div>
+        {/* Narrow: keep Quote + menu on the bar; phones sit as a compact dual-row. */}
+        <div className="hs-hdr-mobile-actions">{phoneLinks}</div>
 
         {/* Wide screens: every service is a tab, each its own page. */}
         {serviceLinks.length ? (
