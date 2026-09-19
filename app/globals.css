@@ -2719,11 +2719,13 @@ a.admin-list-row:focus-visible {
   .hs-hdr-mark { width: 62px; height: 62px; }
   .hs-hdr-actions { order: 3; flex: 1 1 auto; }
   /* The two actions move to their own full-width row below. */
-  .hs-hdr-actions .hs-hdr-quote, .hs-hdr-actions .hs-hdr-phone { display: none; }
+  .hs-hdr-actions .hs-hdr-quote, .hs-hdr-actions .hs-hdr-phone,
+  .hs-hdr-actions .hs-dual { display: none; }
   .hs-hdr-mobile-actions {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    display: grid; grid-template-columns: 1fr; gap: 10px;
     padding: 0 16px 14px; max-width: 1280px; margin: 0 auto;
   }
+  .hs-hdr-mobile-actions .hs-hdr-quote { justify-content: center; }
   .hs-hdr-mobile-actions .hs-hdr-phone {
     justify-content: center; border: 1px solid var(--amber-border);
     background: var(--amber-muted); border-radius: 0.5rem; padding: 10px;
@@ -4891,4 +4893,146 @@ img[src*="placeholder"] {
 .cs-nap { margin: 14px 0 0; color: #C5D0DE; font-size: 14px; line-height: 1.5; }
 @media (prefers-reduced-motion: reduce) {
   .cs-call:hover { transform: none; }
+}
+
+/* --- Dual day/night phones ------------------------------------------- */
+.hs-dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  min-width: 0;
+}
+.hs-dual-phone {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 0;
+  text-decoration: none;
+  line-height: 1.15;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+.hs-dual-kicker {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hs-dual-phone strong {
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.hs-dual-phone small {
+  font-size: 0.72rem;
+  font-weight: 650;
+  opacity: 0.82;
+}
+.hs-dual-day {
+  background: var(--sign-hivis, #9AD201);
+  color: #0B1220;
+  border: 2px solid #0B1220;
+  box-shadow: 0 2px 0 0 #0B1220;
+}
+.hs-dual-night {
+  background: transparent;
+  color: inherit;
+  border: 2px solid currentColor;
+}
+.hs-hero-call .hs-dual,
+.hs-offer-card .hs-dual {
+  margin-top: 8px;
+}
+.hs-hero-call .hs-dual-night,
+.cs-card .hs-dual-night {
+  color: #F4F6F8;
+  border-color: #9AD201;
+}
+.hs-hero-call .hs-dual-phone strong { font-size: 1.12rem; }
+.cs-card .hs-dual { margin-top: 0; }
+.cs-card .hs-dual-day {
+  background: #9AD201;
+  color: #0B1220;
+}
+.hs-dual--header .hs-dual-phone { padding: 7px 10px; }
+.hs-dual--header .hs-dual-phone strong { font-size: 0.92rem; }
+.hs-dual--header .hs-dual-night {
+  background: #FFFFFF;
+  color: #0B1220;
+  border-color: #0B1220;
+}
+.hs-dual--inline {
+  max-width: 520px;
+  margin-top: 16px;
+}
+.hs-dual--stack { width: 100%; }
+.hs-offer-card .hs-dual-night {
+  color: var(--text-primary);
+  border-color: var(--border-strong, #0B1220);
+}
+
+@media (max-width: 560px) {
+  .hs-dual--hero,
+  .hs-dual--stack { grid-template-columns: 1fr; }
+}
+
+/* Header dual phones: keep both labels visible on the mobile action row. */
+.hs-hdr-mobile-actions .hs-dual { width: 100%; }
+
+/* Call bar is now a two-number dock, not a single 24/7 pager tap. */
+.hs-callbar .hs-dual--callbar {
+  width: 100%;
+  gap: 8px;
+}
+.hs-callbar .hs-dual-phone {
+  align-items: center;
+  text-align: center;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+.hs-callbar .hs-dual-day {
+  background: #9AD201;
+  color: #0B1220;
+  border-color: #0B1220;
+}
+.hs-callbar .hs-dual-night {
+  color: #FFFFFF;
+  border-color: #9AD201;
+}
+.hs-callbar .hs-dual-phone strong { font-size: 0.95rem; }
+.hs-callbar .hs-dual-kicker { font-size: 0.62rem; }
+@media (max-width: 768px) {
+  body:has(.hs-callbar) { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
+}
+
+/* Services name ticker — CSS only so back-forward restore still paints. */
+.hs-services-marquee {
+  overflow: hidden;
+  background: #0B1220;
+  border-block: 3px solid var(--sign-hivis, #9AD201);
+}
+.hs-services-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: hs-services-marquee 28s linear infinite;
+}
+.hs-services-marquee a {
+  flex: none;
+  white-space: nowrap;
+  padding: 12px 28px;
+  color: #FFFFFF;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.hs-services-marquee a:hover { color: var(--sign-hivis, #9AD201); }
+@keyframes hs-services-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hs-services-marquee-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; }
 }

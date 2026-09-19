@@ -4,15 +4,12 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { NavIcon } from '@/components/service/NavIcon'
+import { DualPhone } from '@/components/service/DualPhone'
 import { usePathname } from 'next/navigation'
-import { Menu, Phone, Star, X } from 'lucide-react'
+import { Menu, Star, X } from 'lucide-react'
 import type { PublicFactorySettings } from '@/lib/public-factory-settings'
 
 export type ServiceNavLink = { slug: string; label: string }
-
-function telHref(phone: string) {
-  return `tel:${phone.replace(/[^+\d]/g, '')}`
-}
 
 /**
  * Single-row header for home-service clients: proof and geography on the left,
@@ -31,7 +28,6 @@ export function ServiceHeader({
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
   const { serviceSite } = settings
-  const phone = settings.companyPhone.trim()
   const rating = serviceSite.ratingValue.trim()
   const ratingNumber = Number(rating)
   const hasRating = Boolean(rating) && Number.isFinite(ratingNumber)
@@ -51,15 +47,7 @@ export function ServiceHeader({
       Request a quote
     </Link>
   )
-  const phoneLink = phone ? (
-    <a href={telHref(phone)} className="hs-hdr-phone">
-      <Phone size={17} aria-hidden="true" />
-      <span>
-        <span className="hs-hdr-phone-label">24/7</span>
-        <strong>24/7 {phone}</strong>
-      </span>
-    </a>
-  ) : null
+  const phoneLinks = <DualPhone variant="header" />
 
   return (
     <>
@@ -84,7 +72,7 @@ export function ServiceHeader({
 
           <div className="hs-hdr-actions">
             {quoteLink}
-            {phoneLink}
+            {phoneLinks}
             <button
               type="button"
               className="hs-hdr-menu"
@@ -100,7 +88,7 @@ export function ServiceHeader({
         {/* Phones: both actions as full-width buttons under the header row. */}
         <div className="hs-hdr-mobile-actions">
           {quoteLink}
-          {phoneLink}
+          {phoneLinks}
         </div>
 
         {/* Wide screens: every service is a tab, each its own page. */}

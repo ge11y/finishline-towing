@@ -18,7 +18,7 @@
     "companyPhone": "(603) 615-6750",
     "companyAddress": "585 Benton Road, North Haverhill, NH 03774",
     "contactInfo": "",
-    "supportNote": "Days: call Josh\u2019s cell (603) 252-5568. After 8pm until 5am, call the pager (603) 615-6750.",
+    "supportNote": "24/7 service. Day / cell (603) 252-5568 (daytime through ~8pm). Night / pager (603) 615-6750 (8pm\u20135am).",
     "socials": [
       {
         "label": "Instagram",
@@ -114,8 +114,8 @@
   "siteContent": {
     "homepageHeadline": "24/7 Flatbed Towing.",
     "homepageSubheadline": "24/7 flatbed towing and recovery out of North Haverhill, New Hampshire. Serving the Twin States.",
-    "proofPoints": "24/7 (603) 615-6750 \u00b7 Serving the Twin States since 2012 \u00b7 Owner-operated \u00b7 USDOT 3693451",
-    "primaryCtaLabel": "Call now \u2014 24/7",
+    "proofPoints": "24/7 service \u00b7 Day cell (603) 252-5568 \u00b7 Night pager 8pm\u20135am (603) 615-6750 \u00b7 Serving the Twin States since 2012 \u00b7 Owner-operated \u00b7 USDOT 3693451",
+    "primaryCtaLabel": "Call day cell",
     "secondaryCtaLabel": "Request a tow",
     "aboutCopy": "Finish Line Towing is Joshua Aldrich. Local, owner-operated flatbed towing and recovery out of North Haverhill \u2014 serving the Twin States since 2012. The truck rolls 24/7; the phone goes to him, not a call center. In his words: \"I started in this business as an opportunity to provide for our area, with services much needed.\"",
     "faqCopy": "Do you answer at night?\nAfter 8pm until 5am, call the pager \u2014 (603) 615-6750. During the day, call Josh\u2019s cell \u2014 (603) 252-5568. Either way you\u2019re reaching him, not a call center.\n\nIs it a flatbed or a wheel-lift?\nFlatbed. Your vehicle rides on the deck instead of being dragged on two wheels, which is what you want for anything low, all-wheel drive, classic, or already damaged.\n\nWill you tow a motorcycle?\nYes \u2014 cars, trucks, and motorcycles.\n\nWhere are you based?\n585 Benton Road, North Haverhill, NH 03774, in Grafton County.\n\nHow long have you been doing this?\nFinish Line Towing, LLC was formed in July 2021 and is registered and in good standing with the State of New Hampshire.",
@@ -175,16 +175,12 @@
     "serviceAreaTowns": [],
     "businessHours": [
       {
-        "days": "24/7",
-        "hours": "(603) 615-6750"
+        "days": "Day \u00b7 cell",
+        "hours": "(603) 252-5568 \u00b7 daytime through ~8pm"
       },
       {
-        "days": "Every day \u00b7 daytime",
-        "hours": "Cell (603) 252-5568"
-      },
-      {
-        "days": "Every night \u00b7 8pm\u20135am",
-        "hours": "Pager (603) 615-6750"
+        "days": "Night \u00b7 pager",
+        "hours": "(603) 615-6750 \u00b7 8pm\u20135am"
       }
     ],
     "whyChooseUs": [
@@ -217,8 +213,8 @@
     "ctaCards": [
       {
         "title": "Broken down right now?",
-        "body": "Don't fill out a form. Days: cell (603) 252-5568. After 8pm\u20135am: pager (603) 615-6750.",
-        "actionLine": "(603) 615-6750"
+        "body": "Don't fill out a form. Day cell (603) 252-5568 through ~8pm. Night pager (603) 615-6750 from 8pm\u20135am.",
+        "actionLine": "Day cell (603) 252-5568 \u00b7 Night pager (603) 615-6750"
       },
       {
         "title": "Classic, lowered, or all-wheel drive?",

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Mail, MapPin, MessageSquareText, PackageSearch, Phone } from 'lucide-react'
 import { getLiveCatalogProducts } from '@/lib/catalog-live'
 import { getPublicFactorySettings } from '@/lib/public-factory-settings'
-import { CELL_NOTE, CELL_PHONE, PAGER_NOTE, telHref } from '@/lib/contact'
+import { CELL_NOTE, DAY_CELL, NIGHT_PAGER, PAGER_NOTE, telHref } from '@/lib/contact'
 import { QuoteForm } from '@/components/service/QuoteForm'
 import { BusinessSchema } from '@/components/BusinessSchema'
 
@@ -23,25 +23,21 @@ export default async function ContactPage() {
   const phone = settings.companyPhone.trim()
 
   const supportItems = [
-    ...(isServiceMode && phone
+    ...(isServiceMode
       ? [
           {
-            label: 'Call or text',
-            value: phone,
-            note: PAGER_NOTE,
-            icon: Phone,
-            href: telHref(phone),
-          },
-          // The number on the door of the truck, and on every existing
-          // listing. Second because he asked for the pager first, but present
-          // because a customer reading it off the flatbed must not find a
-          // site that disowns it.
-          {
-            label: 'Or his cell',
-            value: CELL_PHONE,
+            label: 'Day / cell',
+            value: DAY_CELL,
             note: CELL_NOTE,
             icon: Phone,
-            href: telHref(CELL_PHONE),
+            href: telHref(DAY_CELL),
+          },
+          {
+            label: 'Night / pager',
+            value: NIGHT_PAGER,
+            note: PAGER_NOTE,
+            icon: Phone,
+            href: telHref(NIGHT_PAGER),
           },
         ]
       : []),

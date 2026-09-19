@@ -1,5 +1,5 @@
 import { getPublicFactorySettings } from '@/lib/public-factory-settings'
-import { CELL_PHONE } from '@/lib/contact'
+import { DAY_CELL, DAY_CELL_WHEN, NIGHT_PAGER, NIGHT_PAGER_WHEN } from '@/lib/contact'
 
 /**
  * Structured data for the business, so a search engine can read the phone
@@ -74,23 +74,24 @@ export async function BusinessSchema({ pageUrl = '/site' }: { pageUrl?: string }
     alternateName: settings.businessName,
     description: settings.siteContent.homepageSubheadline,
     url: `${base}${pageUrl === '/' ? '/' : pageUrl}`,
-    telephone: settings.companyPhone,
-    // Both lines, so the listing Google builds from this page matches the
-    // number on the truck as well as the one the site leads with. `telephone`
-    // stays the pager because that is the primary; contactPoint carries the
-    // pair, which is how schema.org expresses more than one line.
+    telephone: `${DAY_CELL}, ${NIGHT_PAGER}`,
+    // Both lines, labeled by time. 24/7 is the service hours, not one number.
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        telephone: settings.companyPhone,
-        contactType: 'dispatch',
+        telephone: DAY_CELL,
+        contactType: 'customer service',
+        name: 'Day cell',
+        description: DAY_CELL_WHEN,
         areaServed: 'US-NH',
         availableLanguage: 'English',
       },
       {
         '@type': 'ContactPoint',
-        telephone: CELL_PHONE,
-        contactType: 'dispatch',
+        telephone: NIGHT_PAGER,
+        contactType: 'customer service',
+        name: 'Night pager',
+        description: NIGHT_PAGER_WHEN,
         areaServed: 'US-NH',
         availableLanguage: 'English',
       },

@@ -1,11 +1,9 @@
 import Image from 'next/image'
 import { BusinessSchema } from '@/components/BusinessSchema'
+import { DualPhone } from '@/components/service/DualPhone'
 import { ROUND_LOGO, HERO_BANNER } from '@/lib/finishline-redlines'
+import { SERVICE_247 } from '@/lib/contact'
 import type { PublicFactorySettings } from '@/lib/public-factory-settings'
-
-function telHref(phone: string) {
-  return `tel:${phone.replace(/[^+\d]/g, '')}`
-}
 
 /**
  * Public GBP face. No storefront chrome. Phone-first, Finishline-branded.
@@ -15,7 +13,6 @@ export async function ComingSoonLanding({
 }: {
   settings: PublicFactorySettings
 }) {
-  const phone = settings.companyPhone.trim() || '(603) 615-6750'
   const hours = settings.serviceSite.businessHours
   const address = settings.companyAddress.trim()
 
@@ -40,10 +37,8 @@ export async function ComingSoonLanding({
         <p className="cs-kicker">Coming soon</p>
         <h1>{settings.businessName}</h1>
         <p className="cs-local">Twin States towing &amp; recovery · North Haverhill, NH</p>
-        <p className="cs-247">24/7</p>
-        <a className="cs-call" href={telHref(phone)}>
-          Call now {phone}
-        </a>
+        <p className="cs-247">{SERVICE_247} — which number depends on the time</p>
+        <DualPhone variant="stack" />
         {hours.length ? (
           <dl className="cs-hours">
             {hours.map((row) => (

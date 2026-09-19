@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Check, Star } from 'lucide-react'
+import { Star } from 'lucide-react'
 import { getLiveCatalogDisplayProducts } from '@/lib/catalog-live'
 import { getPublicFactorySettings } from '@/lib/public-factory-settings'
-import { CELL_PHONE } from '@/lib/contact'
+import { DAY_CELL, NIGHT_PAGER, telHref } from '@/lib/contact'
+import { DualPhone } from '@/components/service/DualPhone'
+import { ServicesMarquee } from '@/components/service/ServicesMarquee'
 import { QuoteForm } from '@/components/service/QuoteForm'
 import { BusinessSchema } from '@/components/BusinessSchema'
 import { WhyIcon } from '@/components/WhyIcon'
@@ -49,10 +51,6 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-function telHref(phone: string) {
-  return `tel:${phone.replace(/[^+\d]/g, '')}`
-}
-
 export default async function HomeServiceLandingPage() {
   const [settings, products] = await Promise.all([
     getPublicFactorySettings(),
@@ -67,7 +65,6 @@ export default async function HomeServiceLandingPage() {
     .map((point) => point.trim())
     .filter(Boolean)
   const faqs = parseFaqCopy(siteContent.faqCopy)
-  const hasPhone = settings.companyPhone.trim().length > 0
   const serviceNames = services.map((service) => service.displayName)
   // The hero carries the quickest capability promises; the mid-page band
   // carries the full list. Same source, two levels of patience.
@@ -113,11 +110,9 @@ export default async function HomeServiceLandingPage() {
                 ))}
               </ul>
             ) : null}
-            {hasPhone ? (
-              <a href={telHref(settings.companyPhone)} className="hs-btn-primary hs-hero-call">
-                {siteContent.primaryCtaLabel}
-              </a>
-            ) : null}
+            <div className="hs-hero-call">
+              <DualPhone variant="hero" />
+            </div>
           </div>
           <div className="hs-hero-form">
             <QuoteForm
@@ -142,6 +137,8 @@ export default async function HomeServiceLandingPage() {
           </ul>
         </div>
       ) : null}
+
+      <ServicesMarquee services={services} />
 
       {/* Differentiators — the objection-killers, on a dark panel. */}
       {serviceSite.whyChooseUs.length ? (
@@ -261,11 +258,7 @@ export default async function HomeServiceLandingPage() {
                 <h3>{card.title}</h3>
                 <p>{card.body}</p>
                 {card.actionLine ? <p className="hs-offer-action">{card.actionLine}</p> : null}
-                {hasPhone ? (
-                  <a href={telHref(settings.companyPhone)} className="hs-btn-primary">
-                    {settings.companyPhone}
-                  </a>
-                ) : null}
+                <DualPhone variant="stack" />
               </article>
             ))}
           </div>
@@ -333,9 +326,9 @@ export default async function HomeServiceLandingPage() {
             <p className="hs-close-sub">{siteContent.legalSupportCopy}</p>
             <p className="hs-close-meta">
               {settings.companyAddress ? <>{settings.companyAddress} · </> : null}
-              {hasPhone ? <a href={telHref(settings.companyPhone)}>{settings.companyPhone}</a> : null}
+              <a href={telHref(DAY_CELL)}>Day cell {DAY_CELL}</a>
               {' · '}
-              <a href={telHref(CELL_PHONE)}>{CELL_PHONE}</a>
+              <a href={telHref(NIGHT_PAGER)}>Night pager {NIGHT_PAGER}</a>
             </p>
           </div>
           <div className="hs-close-actions">

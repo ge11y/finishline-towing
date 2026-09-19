@@ -141,7 +141,7 @@ export function AppChrome({
           )}
           <main style={{ flex: 1, paddingTop: isFactoryHome ? 0 : 'var(--promo-banner-offset, 0px)' }}>{children}</main>
           {isFactoryHome ? null : <Footer settings={publicSettings} />}
-          {isServiceChrome ? <CallBar phone={publicSettings.companyPhone} /> : null}
+          {isServiceChrome ? <CallBar /> : null}
         </div>
     </CartProvider>
   )

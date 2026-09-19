@@ -1,17 +1,17 @@
 import type { Metadata } from 'next'
 import { ComingSoonLanding } from '@/components/ComingSoonLanding'
+import { DAY_CELL, NIGHT_PAGER } from '@/lib/contact'
 import { getPublicFactorySettings } from '@/lib/public-factory-settings'
 
 export const dynamic = 'force-dynamic'
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getPublicFactorySettings()
-  const phone = settings.companyPhone.trim() || '(603) 615-6750'
   return {
     title: {
-      absolute: `Coming Soon | ${settings.businessName} | 24/7 ${phone}`,
+      absolute: `Coming Soon | ${settings.businessName} | 24/7 service`,
     },
-    description: `${settings.businessName} — Twin States towing and recovery out of North Haverhill, NH. 24/7 ${phone}.`,
+    description: `${settings.businessName} — Twin States towing and recovery out of North Haverhill, NH. 24/7 service. Day cell ${DAY_CELL} (through ~8pm). Night pager ${NIGHT_PAGER} (8pm–5am).`,
     robots: { index: true, follow: true },
   }
 }
