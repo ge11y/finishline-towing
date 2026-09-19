@@ -32,7 +32,7 @@ function gateHtml(bad: boolean) {
   body{min-height:100dvh;display:grid;place-items:center;padding:20px;
     background:
       linear-gradient(180deg,rgba(7,17,31,.72),rgba(0,63,134,.78)),
-      url("/clients/finish-line-towing/work-suv-loaded.jpg") center/cover no-repeat #07111f;}
+      url("/clients/finish-line-towing/hero-racetruck-v3.jpg") center/cover no-repeat #07111f;}
   .wrap{width:min(440px,100%);text-align:center}
   .logo{width:148px;height:148px;margin:0 auto 18px;border-radius:50%;
     overflow:hidden;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,.35)}

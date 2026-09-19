@@ -11,7 +11,7 @@ import type { Product } from '@/lib/types'
 import { LABELED_HOURS, PROOF_POINTS, SUPPORT_NOTE } from '@/lib/contact'
 
 export const ROUND_LOGO = '/clients/finish-line-towing/logo-round.png'
-export const HERO_BANNER = '/clients/finish-line-towing/work-suv-loaded.jpg'
+export const HERO_BANNER = '/clients/finish-line-towing/hero-racetruck-v3.jpg'
 export const TOWING_SECTION_PHOTO = '/clients/finish-line-towing/work-camaro-randys.jpg'
 export const RECOVERY_PHOTO = '/clients/finish-line-towing/gallery-2.jpg'
 
