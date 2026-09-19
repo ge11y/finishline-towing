@@ -104,7 +104,7 @@ export default async function ServiceDetailPage({ params }: Props) {
 
       <section className="hs-section hs-service-main">
         <div className="hs-service-copy">
-          {usesBullets ? null : <p className="hs-service-lead">{body}</p>}
+          {usesBullets || copy ? null : <p className="hs-service-lead">{body}</p>}
 
           {copy ? (
             <div className="hs-service-body">

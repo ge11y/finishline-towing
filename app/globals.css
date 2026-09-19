@@ -4765,3 +4765,130 @@ img[src*="placeholder"] {
   font-size: 0.92rem;
 }
 .nf-links a { color: var(--text-secondary, #4a5462); }
+
+/* --- Hero service grid (Flatbed first / featured) -------------------- */
+.hs-hero-grid {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  max-width: 420px;
+}
+.hs-hero-grid a {
+  display: block;
+  padding: 10px 12px;
+  border: 1px solid color-mix(in srgb, #fff 28%, transparent);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 650;
+  background: color-mix(in srgb, #003F86 42%, transparent);
+}
+.hs-hero-grid a.is-featured {
+  grid-column: 1 / -1;
+  background: var(--sign-hivis, #9AD201);
+  color: #0B1220;
+  border-color: #0B1220;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+.hs-row-points {
+  list-style: none;
+  margin: 12px 0 22px;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+  color: var(--text-secondary);
+  max-width: 52ch;
+}
+.hs-row-points li { padding-left: 0.1em; }
+.hs-disclaimer {
+  margin-top: 6px;
+  font-weight: 750;
+  color: var(--text-primary);
+}
+.hs-about-247 {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+.hs-about-247 a { color: inherit; }
+
+/* --- Public Coming Soon (GBP / root) --------------------------------- */
+.cs-page {
+  position: relative;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px 36px;
+  color: #F4F6F8;
+  background: #07111f;
+}
+.cs-media { position: absolute; inset: 0; }
+.cs-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7,17,31,.70), rgba(0,63,134,.78));
+}
+.cs-card {
+  position: relative;
+  width: min(440px, 100%);
+  text-align: center;
+  z-index: 1;
+}
+.cs-logo {
+  width: 168px;
+  height: 168px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(0,0,0,.35);
+  display: grid;
+  place-items: center;
+}
+.cs-kicker {
+  margin: 0 0 8px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 800;
+  color: #9AD201;
+}
+.cs-card h1 {
+  margin: 0 0 8px;
+  font-size: clamp(1.7rem, 6vw, 2.2rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.cs-local { margin: 0 0 10px; color: #C5D0DE; line-height: 1.45; }
+.cs-247 { margin: 0 0 18px; font-size: 1.4rem; font-weight: 800; letter-spacing: 0.04em; }
+.cs-call {
+  display: block;
+  width: 100%;
+  padding: 18px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  background: #9AD201;
+  color: #0B1220;
+  font-weight: 900;
+  font-size: 1.15rem;
+  box-shadow: 0 4px 0 #0B1220;
+}
+.cs-call:hover { transform: translateY(1px); box-shadow: 0 3px 0 #0B1220; }
+.cs-hours { margin: 22px 0 0; padding: 0; text-align: left; color: #C5D0DE; font-size: 14px; }
+.cs-hours div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.cs-hours dt { font-weight: 700; color: #fff; }
+.cs-hours dd { margin: 0; }
+.cs-nap { margin: 14px 0 0; color: #C5D0DE; font-size: 14px; line-height: 1.5; }
+@media (prefers-reduced-motion: reduce) {
+  .cs-call:hover { transform: none; }
+}

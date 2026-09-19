@@ -58,12 +58,8 @@ export const SERVICE_COPY: Record<string, ServiceCopy> = {
     lead: 'Not every call needs the car on the truck. Some of them need ten minutes and the right tool.',
     sections: [
       {
-        heading: 'Jump starts, lockouts, flat tires, fuel',
-        body: 'A battery that died in a parking lot, keys shut in the car, a flat with a spare in the trunk, or a tank that ran further empty than the gauge admitted. These are the four that come up most, and none of them are a reason to pay for a tow.',
-      },
-      {
-        heading: 'Cheaper than putting it on the deck',
-        body: 'A roadside call costs less than a tow because it is less work and less time. If it turns out the problem is bigger than it looked, the truck is already there and the car goes on the deck instead — but it gets tried the cheap way first.',
+        heading: 'Jump starts, lockouts, and flat tires',
+        body: 'A battery that died in a parking lot, keys shut in the car, or a flat with a spare in the trunk. These are the three that come up most, and none of them are a reason to pay for a tow.',
       },
       {
         heading: 'Rates are quoted before he rolls',
@@ -73,21 +69,8 @@ export const SERVICE_COPY: Record<string, ServiceCopy> = {
   },
 
   'motorcycle-towing': {
-    lead: 'Bikes go on the flatbed upright, chocked and strapped soft. Nothing is chained and nothing is dragged.',
-    sections: [
-      {
-        heading: 'Chock and soft straps',
-        body: 'The front wheel sits in a chock so the bike stands on its own, and it is tied down with soft straps through the controls or the frame rather than hooks biting into paint and chrome. That is the difference between a bike arriving and a bike arriving with marks on it.',
-      },
-      {
-        heading: 'Never chained by the frame',
-        body: 'A chain around a motorcycle frame is how tanks get dented and bodywork gets cracked, and it is not how these go on the truck. Same rule as the cars: hold it by the parts built to be held.',
-      },
-      {
-        heading: 'Down bikes and project bikes too',
-        body: 'It does not have to run and it does not have to be whole. If it needs to move from a garage to a shop, or from a purchase to your garage, it moves the same way.',
-      },
-    ],
+    lead: 'Hauled on the flatbed with care.',
+    sections: [],
   },
 
   'hauling-transport': {
@@ -103,7 +86,7 @@ export const SERVICE_COPY: Record<string, ServiceCopy> = {
       },
       {
         heading: 'Longer runs are quoted',
-        body: 'Finish Line Towing is USDOT registered and active for motor vehicles and drive-away. Distance work is priced by the job and quoted before the truck rolls.',
+        body: 'Distance work is priced by the job and quoted before the truck rolls.',
       },
     ],
   },
@@ -120,8 +103,8 @@ export const SERVICE_COPY: Record<string, ServiceCopy> = {
         body: 'Those three things plus where it is parked are enough to tell you over the phone what is involved. Whether it is whole or has already been picked over matters too, so say so.',
       },
       {
-        heading: 'Bring up the title when you call',
-        body: 'Paperwork for a dead vehicle varies with how long it has been off the road and whose name is still on it. It is worth raising on the phone rather than discovering on the day.',
+        heading: 'Title required.',
+        body: 'A title is required for junk car removal. Paperwork for a dead vehicle varies with how long it has been off the road and whose name is still on it. Raise it on the phone rather than discovering on the day.',
       },
     ],
   },

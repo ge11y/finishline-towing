@@ -14,7 +14,8 @@ Public:
 
 | Route | What it is |
 |---|---|
-| `/site` | Home — hero, call bar, the paged request form, services, service area. Canonical; `/` redirects here. |
+| `/` · `/coming-soon` | Public Coming Soon for GBP — logo, 24/7 call, NAP. No preview password. |
+| `/site` | Full home — hero, call bar, the paged request form, services, service area. Preview-gated while `PREVIEW_GATE` is on. |
 | `/services/[slug]` | One page per service, generated from the catalog. Six of them. |
 | `/racing` | Kiptyn Aldrich's #74 programme, sponsor directory, sponsorship application. |
 | `/merch` | Showcase only. Ordering opens a text message to Josh; there is no checkout. |

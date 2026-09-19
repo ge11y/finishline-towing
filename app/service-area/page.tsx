@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Towing Service Area — Haverhill, Woodsville, Littleton & Wells River',
     description:
-      'Towns and highway corridors covered by Finish Line Towing, out of North Haverhill, New Hampshire — both sides of the Connecticut River, 23.5 hours a day.',
+      'Towns and highway corridors covered by Finish Line Towing, out of North Haverhill, New Hampshire — both sides of the Connecticut River, 24/7.',
   }
 }
 
@@ -77,8 +77,8 @@ export default async function ServiceAreaPage() {
           <h2>Where we go</h2>
         </div>
         <p className="hs-intro-copy">
-          Based at 585 Benton Road in North Haverhill, running both sides of the river, 23.5 hours
-          a day. If your town isn’t on this list, it’s still worth a call — long-distance work is
+          Based at 585 Benton Road in North Haverhill, running both sides of the river, 24/7.
+          If your town isn’t on this list, it’s still worth a call — long-distance work is
           quoted, and the truck has taken loads well past these lines.
         </p>
       </section>

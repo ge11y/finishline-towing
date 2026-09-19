@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import { AppChrome } from "@/components/AppChrome";
 import { getPublicFactorySettings } from "@/lib/public-factory-settings";
 import { getLiveCatalogDisplayProducts } from "@/lib/catalog-live";
+import { orderServicesForDisplay } from "@/lib/finishline-redlines";
 import "./globals.css";
 
 // Font stacks that back brandSettings.fontPreset. Loaded here so the CSS
@@ -147,7 +148,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       type: 'website',
       locale: 'en_US',
-      url: `${siteUrl()}/site`,
+      url: `${siteUrl()}/`,
       siteName: title,
       title,
       description: settings.siteContent.homepageSubheadline,
@@ -159,9 +160,9 @@ export async function generateMetadata(): Promise<Metadata> {
           alt: 'FINISHLINE Towing',
         },
         {
-          url: '/clients/finish-line-towing/logo-jhook.png',
+          url: '/clients/finish-line-towing/logo-round.png',
           width: 800,
-          height: 1011,
+          height: 800,
           alt: 'FINISHLINE Towing',
         },
       ],
@@ -172,7 +173,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: settings.siteContent.homepageSubheadline,
       images: [
         '/clients/finish-line-towing/og-lockup.png',
-        '/clients/finish-line-towing/logo-jhook.png',
+        '/clients/finish-line-towing/logo-round.png',
       ],
     },
   }
@@ -190,9 +191,9 @@ export default async function RootLayout({
   // live catalog rather than a fixed link list.
   const serviceLinks =
     publicSettings.catalogSettings.catalogMode === "services"
-      ? (await getLiveCatalogDisplayProducts())
-          .filter((product) => product.publicVisible !== false)
-          .map((product) => ({ slug: product.slug, label: product.displayName }))
+      ? orderServicesForDisplay(
+          (await getLiveCatalogDisplayProducts()).filter((product) => product.publicVisible !== false),
+        ).map((product) => ({ slug: product.slug, label: product.displayName }))
       : [];
 
   return (
