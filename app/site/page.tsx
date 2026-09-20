@@ -12,7 +12,6 @@ import { BusinessSchema } from '@/components/BusinessSchema'
 import { WhyIcon } from '@/components/WhyIcon'
 import { parseFaqCopy } from '@/lib/service-mode'
 import {
-  HIDE_LEARN_MORE_SLUGS,
   isTitleRequiredLine,
   orderServicesForDisplay,
   splitServiceLines,
@@ -236,11 +235,9 @@ export default async function HomeServiceLandingPage() {
                   }
                   return <p>{service.summaryShort}</p>
                 })()}
-                {HIDE_LEARN_MORE_SLUGS.has(service.slug) ? null : (
-                  <Link href={`/services/${service.slug}`} className="hs-btn-outline">
-                    Learn more
-                  </Link>
-                )}
+                <Link href={`/services/${service.slug}`} className="hs-btn-outline">
+                  Learn more
+                </Link>
               </div>
             </article>
           ))}

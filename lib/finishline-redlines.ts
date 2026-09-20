@@ -18,8 +18,6 @@ export const RECOVERY_PHOTO = '/clients/finish-line-towing/gallery-2.jpg'
 /** Stuck SUV in the woods — marked remove. Do not feature it. */
 export const REMOVED_STUCK_SUV_PHOTO = '/clients/finish-line-towing/recovery.jpg'
 
-export const HIDE_LEARN_MORE_SLUGS = new Set(['roadside-assistance', 'hauling-transport'])
-
 export const SERVICE_REDLINES: Record<
   string,
   {
