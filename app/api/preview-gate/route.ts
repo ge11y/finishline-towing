@@ -57,10 +57,10 @@ function gateHtml(bad: boolean) {
   .hours dt{font-weight:700;color:var(--text)}
   .hours dd{margin:0}
   .nap{margin:16px 0 0;color:var(--muted);font-size:14px;line-height:1.5}
-  details{margin-top:28px;text-align:left;background:rgba(7,17,31,.55);
-    border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px 14px}
-  summary{cursor:pointer;font-size:13px;font-weight:700;color:var(--muted)}
-  form{margin-top:12px}
+  .unlock{margin-top:28px;text-align:left;background:rgba(7,17,31,.55);
+    border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:14px}
+  .unlock-title{margin:0 0 12px;font-size:13px;font-weight:700;color:var(--muted)}
+  form{margin:0}
   label{display:block;margin-bottom:6px;font-size:11px;letter-spacing:.14em;
     text-transform:uppercase;color:var(--muted)}
   input{width:100%;font:inherit;font-size:16px;color:var(--text);background:#07111f;
@@ -98,8 +98,8 @@ function gateHtml(bad: boolean) {
       <div><dt>Night · pager</dt><dd>${night} · 8pm–5am</dd></div>
     </dl>
     <p class="nap">585 Benton Road, North Haverhill, NH 03774</p>
-    <details>
-      <summary>Have a preview password?</summary>
+    <section class="unlock" aria-labelledby="unlock-heading">
+      <p class="unlock-title" id="unlock-heading">Have a preview password?</p>
       ${
         bad
           ? `<p class="err" role="alert">That password didn't match. Check with whoever sent you the link.</p>`
@@ -112,7 +112,7 @@ function gateHtml(bad: boolean) {
                spellcheck="false" placeholder="••••••••••••">
         <button type="submit">View the full site</button>
       </form>
-    </details>
+    </section>
     <p class="note">Built by ${agency}</p>
   </main>
   <script>
