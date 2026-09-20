@@ -26,9 +26,9 @@ const SERVICES = [
   'Flatbed Towing',
   'Recovery & Winch-Outs',
   'Roadside Assistance',
-  'Motorcycle Towing',
   'Hauling & Transport',
   'Junk Car Removal',
+  'Motorcycle Towing',
   'Something else',
 ]
 

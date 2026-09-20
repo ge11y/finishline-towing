@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { Check } from 'lucide-react'
 import { getLiveCatalogDisplayProducts } from '@/lib/catalog-live'
 import { getPublicFactorySettings } from '@/lib/public-factory-settings'
+import { orderServicesForDisplay } from '@/lib/finishline-redlines'
 import { QuoteForm } from '@/components/service/QuoteForm'
 import { WhyIcon } from '@/components/WhyIcon'
 import { SERVICE_COPY } from '@/lib/service-copy'
@@ -27,7 +28,7 @@ async function getService(slug: string) {
   const settings = await getPublicFactorySettings()
   if (settings.catalogSettings.catalogMode !== 'services') return null
   const products = await getLiveCatalogDisplayProducts()
-  const services = products.filter((product) => product.publicVisible !== false)
+  const services = orderServicesForDisplay(products.filter((product) => product.publicVisible !== false))
   const service = services.find((entry) => entry.slug === slug)
   return service ? { settings, service, services } : null
 }

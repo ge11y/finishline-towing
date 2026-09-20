@@ -46,10 +46,6 @@ export const SERVICE_REDLINES: Record<
     summaryShort: 'Jump starts\nLockouts\nFlat tire changes',
     summaryFull: 'Jump starts\nLockouts\nFlat tire changes',
   },
-  'motorcycle-towing': {
-    summaryShort: 'Hauled on the flatbed with care.',
-    summaryFull: 'Hauled on the flatbed with care.',
-  },
   'hauling-transport': {
     summaryShort: 'Vehicles that don\'t run, and project cars\nAuction and dealer pickups\nSmall equipment',
     summaryFull: 'Vehicles that don\'t run, and project cars\nAuction and dealer pickups\nSmall equipment',
@@ -59,6 +55,10 @@ export const SERVICE_REDLINES: Record<
       'Dead vehicles taken off your hands\nCleared off your lawn or driveway\nCall with the year, make and condition\nTitle required.',
     summaryFull:
       'Dead vehicles taken off your hands\nCleared off your lawn or driveway\nCall with the year, make and condition\nTitle required.',
+  },
+  'motorcycle-towing': {
+    summaryShort: 'Hauled on the flatbed with care.',
+    summaryFull: 'Hauled on the flatbed with care.',
   },
 }
 
@@ -91,11 +91,22 @@ export function applyCatalogRedlines<T extends Pick<Product, 'slug' | 'summarySh
   })
 }
 
+/** Public grid / nav / forms. Motorcycle last — rarely towed, no photo. */
+export const SERVICE_DISPLAY_ORDER = [
+  'flatbed-towing',
+  'recovery-winch-outs',
+  'roadside-assistance',
+  'hauling-transport',
+  'junk-car-removal',
+  'motorcycle-towing',
+] as const
+
 export function orderServicesForDisplay<T extends { slug: string }>(services: T[]): T[] {
+  const rank = new Map<string, number>(SERVICE_DISPLAY_ORDER.map((slug, index) => [slug, index]))
   return [...services].sort((a, b) => {
-    if (a.slug === 'flatbed-towing') return -1
-    if (b.slug === 'flatbed-towing') return 1
-    return 0
+    const aRank = rank.get(a.slug) ?? Number.MAX_SAFE_INTEGER
+    const bRank = rank.get(b.slug) ?? Number.MAX_SAFE_INTEGER
+    return aRank - bRank
   })
 }
 

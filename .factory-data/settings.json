@@ -152,9 +152,9 @@
       "towing": "Flatbed Towing",
       "recovery": "Recovery & Winch-Outs",
       "roadside": "Roadside Assistance",
-      "motorcycle": "Motorcycle Towing",
       "hauling": "Hauling & Transport",
-      "junk-cars": "Junk Car Removal"
+      "junk-cars": "Junk Car Removal",
+      "motorcycle": "Motorcycle Towing"
     }
   },
   "emailSettings": {
