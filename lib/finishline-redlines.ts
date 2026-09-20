@@ -102,7 +102,7 @@ export const SERVICE_DISPLAY_ORDER = [
 ] as const
 
 export function orderServicesForDisplay<T extends { slug: string }>(services: T[]): T[] {
-  const rank = new Map(SERVICE_DISPLAY_ORDER.map((slug, index) => [slug, index]))
+  const rank = new Map<string, number>(SERVICE_DISPLAY_ORDER.map((slug, index) => [slug, index]))
   return [...services].sort((a, b) => {
     const aRank = rank.get(a.slug) ?? Number.MAX_SAFE_INTEGER
     const bRank = rank.get(b.slug) ?? Number.MAX_SAFE_INTEGER
