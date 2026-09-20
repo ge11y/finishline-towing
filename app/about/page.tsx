@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Check, ClipboardCheck, FlaskConical, PackageCheck, ShieldCheck } from 'lucide-react'
 import { getLiveCatalogProducts } from '@/lib/catalog-live'
 import { getPublicFactorySettings } from '@/lib/public-factory-settings'
+import { orderServicesForDisplay } from '@/lib/finishline-redlines'
 import { WhyIcon } from '@/components/WhyIcon'
 import { DualPhone } from '@/components/service/DualPhone'
 import { SERVICE_247 } from '@/lib/contact'
@@ -123,9 +124,11 @@ export default async function AboutPage() {
     return (
       <ServiceAboutPage
         settings={settings}
-        services={products
-          .filter((product) => product.publicVisible !== false)
-          .map((product) => ({ slug: product.slug, displayName: product.displayName }))}
+        services={orderServicesForDisplay(
+          products
+            .filter((product) => product.publicVisible !== false)
+            .map((product) => ({ slug: product.slug, displayName: product.displayName })),
+        )}
       />
     )
   }

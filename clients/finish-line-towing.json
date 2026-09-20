@@ -200,12 +200,6 @@
       "image": "/clients/finish-line-towing/roadside-assistance.jpg"
     },
     {
-      "name": "Motorcycle Towing",
-      "category": "motorcycle",
-      "description": "Hauled on the flatbed with care.",
-      "image": ""
-    },
-    {
       "name": "Hauling & Transport",
       "category": "hauling",
       "description": "Vehicles that don't run, and project cars\nAuction and dealer pickups\nSmall equipment",
@@ -216,6 +210,12 @@
       "category": "junk-cars",
       "description": "Dead vehicles taken off your hands\nCleared off your lawn or driveway\nCall with the year, make and condition\nTitle required.",
       "image": "/clients/finish-line-towing/junk-car.jpg"
+    },
+    {
+      "name": "Motorcycle Towing",
+      "category": "motorcycle",
+      "description": "Hauled on the flatbed with care.",
+      "image": ""
     }
   ]
 }

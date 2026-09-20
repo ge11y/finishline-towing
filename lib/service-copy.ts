@@ -68,11 +68,6 @@ export const SERVICE_COPY: Record<string, ServiceCopy> = {
     ],
   },
 
-  'motorcycle-towing': {
-    lead: 'Hauled on the flatbed with care.',
-    sections: [],
-  },
-
   'hauling-transport': {
     lead: 'Scheduled vehicle moves — the ones you plan rather than the ones that happen to you.',
     sections: [
@@ -107,5 +102,10 @@ export const SERVICE_COPY: Record<string, ServiceCopy> = {
         body: 'A title is required for junk car removal. Paperwork for a dead vehicle varies with how long it has been off the road and whose name is still on it. Raise it on the phone rather than discovering on the day.',
       },
     ],
+  },
+
+  'motorcycle-towing': {
+    lead: 'Hauled on the flatbed with care.',
+    sections: [],
   },
 }

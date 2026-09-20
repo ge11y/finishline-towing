@@ -22,9 +22,9 @@ const SERVICES = [
   'Flatbed Towing',
   'Recovery & Winch-Outs',
   'Roadside Assistance',
-  'Motorcycle Towing',
   'Hauling & Transport',
   'Junk Car Removal',
+  'Motorcycle Towing',
 ]
 
 // From the NH Secretary of State filing and FMCSA, cross-checked in the dossier.
