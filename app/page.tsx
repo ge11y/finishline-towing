@@ -16,7 +16,12 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function RootPage() {
+export default async function RootPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ bad?: string }>
+}) {
   const settings = await getPublicFactorySettings()
-  return <ComingSoonLanding settings={settings} />
+  const { bad } = await searchParams
+  return <ComingSoonLanding settings={settings} badPassword={bad === '1'} />
 }
