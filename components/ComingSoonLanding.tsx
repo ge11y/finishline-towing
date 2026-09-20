@@ -7,11 +7,15 @@ import type { PublicFactorySettings } from '@/lib/public-factory-settings'
 
 /**
  * Public GBP face. No storefront chrome. Phone-first, Finishline-branded.
+ * Preview unlock is visible so humans with the password can enter the full site;
+ * this page itself stays ungated for crawlers.
  */
 export async function ComingSoonLanding({
   settings,
+  badPassword = false,
 }: {
   settings: PublicFactorySettings
+  badPassword?: boolean
 }) {
   const hours = settings.serviceSite.businessHours
   const address = settings.companyAddress.trim()
@@ -51,6 +55,28 @@ export async function ComingSoonLanding({
         ) : null}
         {address ? <p className="cs-nap">{address}</p> : null}
         {settings.companyEmail ? <p className="cs-nap">{settings.companyEmail}</p> : null}
+        <section className="cs-unlock" aria-labelledby="cs-unlock-heading">
+          <p className="cs-unlock-title" id="cs-unlock-heading">
+            Have a preview password?
+          </p>
+          {badPassword ? (
+            <p className="cs-err" role="alert">
+              That password didn&apos;t match. Check with whoever sent you the link.
+            </p>
+          ) : null}
+          <form method="POST" action="/api/preview-unlock">
+            <label htmlFor="cs-pw">Access password</label>
+            <input
+              id="cs-pw"
+              name="password"
+              type="password"
+              autoComplete="current-password"
+              spellCheck={false}
+              placeholder="••••••••••••"
+            />
+            <button type="submit">View the full site</button>
+          </form>
+        </section>
       </main>
     </div>
   )

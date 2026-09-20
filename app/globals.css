@@ -4909,8 +4909,69 @@ img[src*="placeholder"] {
 .cs-hours dt { font-weight: 700; color: #fff; }
 .cs-hours dd { margin: 0; }
 .cs-nap { margin: 14px 0 0; color: #C5D0DE; font-size: 14px; line-height: 1.5; }
+.cs-unlock {
+  margin-top: 28px;
+  text-align: left;
+  background: rgba(7, 17, 31, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 10px;
+  padding: 14px;
+}
+.cs-unlock-title {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #C5D0DE;
+}
+.cs-unlock form { margin: 0; }
+.cs-unlock label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #C5D0DE;
+}
+.cs-unlock input {
+  width: 100%;
+  font: inherit;
+  font-size: 16px;
+  color: #F4F6F8;
+  background: #07111f;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 12px;
+}
+.cs-unlock button {
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 2px solid #9AD201;
+  color: #9AD201;
+  border-radius: 8px;
+  padding: 12px;
+}
+.cs-unlock button:hover {
+  background: #9AD201;
+  color: #0B1220;
+}
+.cs-err {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border: 1px solid rgba(228, 87, 76, 0.45);
+  background: rgba(228, 87, 76, 0.12);
+  color: #F3B0AA;
+  font-size: 13.5px;
+}
 @media (prefers-reduced-motion: reduce) {
   .cs-call:hover { transform: none; }
+  .cs-unlock button:hover { transform: none; }
 }
 
 /* --- Dual day/night phones ------------------------------------------- */
