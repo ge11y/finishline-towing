@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { GOOGLE_REVIEW_URL } from "@/lib/contact";
 import { SITE_SETTINGS } from "@/lib/data-site";
 import type { PublicFactorySettings } from "@/lib/public-factory-settings";
 
@@ -120,6 +121,16 @@ export function Footer({ settings }: { settings?: PublicFactorySettings }) {
           {showAffiliates ? <FooterLink href="/affiliate">Affiliate</FooterLink> : null}
           <FooterLink href="/contact">Contact</FooterLink>
           <FooterLink href="/faq">FAQ</FooterLink>
+          {isServiceMode ? (
+            <a
+              href={GOOGLE_REVIEW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontSize: "14px", color: "var(--accent-400)", display: "block", lineHeight: 2, fontWeight: 600 }}
+            >
+              Leave us a Google review ★
+            </a>
+          ) : null}
           {isServiceMode ? null : <FooterLink href="/apply">Work With Us</FooterLink>}
         </div>
 
