@@ -64,7 +64,7 @@ const ABOUT_COPY =
   'Finish Line Towing is Joshua Aldrich. Local, owner-operated flatbed towing and recovery out of North Haverhill — locally owned, serving North Country NH. The truck rolls 24/7; the phone goes to him, not a call center. In his words: "I started in this business as an opportunity to provide for our area, with services much needed."'
 
 const SUBHEAD =
-  '24/7 flatbed towing and recovery out of 585 Benton Rd, North Haverhill, New Hampshire. Serving Haverhill, Woodsville and towns across northern New Hampshire.'
+  '24/7 flatbed towing and recovery out of 585 Benton Rd, North Haverhill, New Hampshire. Serving Haverhill, Franconia, Sugar Hill, Bath and surrounding North Country towns.'
 
 const PROOF = PROOF_POINTS
 
