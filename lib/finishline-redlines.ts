@@ -61,7 +61,7 @@ export const SERVICE_REDLINES: Record<
 }
 
 const ABOUT_COPY =
-  'Finish Line Towing is Joshua Aldrich. Local, owner-operated flatbed towing and recovery out of North Haverhill — serving the area since 2012. The truck rolls 24/7; the phone goes to him, not a call center. In his words: "I started in this business as an opportunity to provide for our area, with services much needed."'
+  'Finish Line Towing is Joshua Aldrich. Local, owner-operated flatbed towing and recovery out of North Haverhill — locally owned, serving North Country NH. The truck rolls 24/7; the phone goes to him, not a call center. In his words: "I started in this business as an opportunity to provide for our area, with services much needed."'
 
 const SUBHEAD =
   '24/7 flatbed towing and recovery out of 585 Benton Rd, North Haverhill, New Hampshire. Serving Haverhill, Woodsville and towns across northern New Hampshire.'
@@ -130,6 +130,11 @@ export function applyPublicRedlines(settings: PublicFactorySettings): PublicFact
       proofPoints: PROOF,
       primaryCtaLabel: 'Call day cell',
       aboutCopy: ABOUT_COPY,
+      // No founding year anywhere: the start date is unconfirmed.
+      faqCopy: settings.siteContent.faqCopy.replace(
+        /Finish Line Towing, LLC was formed in [A-Za-z]+ \d{4}[^\n]*/g,
+        'Finish Line Towing, LLC is locally owned and registered and in good standing with the State of New Hampshire, serving North Country NH 24/7.',
+      ),
     },
     serviceSite: {
       ...settings.serviceSite,

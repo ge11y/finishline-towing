@@ -29,7 +29,7 @@ export const LABELED_HOURS = [
 ] as const
 
 export const PROOF_POINTS =
-  `24/7 service · Day cell ${DAY_CELL} · Night pager 8pm–5am ${NIGHT_PAGER} · Serving the area since 2012 · Owner-operated · USDOT 3693451`
+  `24/7 service · Day cell ${DAY_CELL} · Night pager 8pm–5am ${NIGHT_PAGER} · Locally owned, serving North Country NH 24/7 · Owner-operated · USDOT 3693451`
 
 export const SUPPORT_NOTE =
   `24/7 service. Day / cell ${DAY_CELL} (daytime through ~8pm). Night / pager ${NIGHT_PAGER} (8pm–5am).`

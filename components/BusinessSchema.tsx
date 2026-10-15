@@ -122,7 +122,6 @@ export async function BusinessSchema({ pageUrl = '/' }: { pageUrl?: string } = {
     identifier: { '@type': 'PropertyValue', name: 'USDOT', value: '3693451' },
     sameAs: settings.socials.map((social) => social.url).filter(Boolean),
     founder: { '@type': 'Person', name: 'Joshua Aldrich' },
-    foundingDate: '2021-07-16',
   }
 
   return (
