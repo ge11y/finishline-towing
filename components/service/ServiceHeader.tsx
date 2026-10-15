@@ -60,7 +60,7 @@ export function ServiceHeader({
             {serviceSite.serviceAreaLine ? <span className="hs-hdr-area">{serviceSite.serviceAreaLine}</span> : null}
           </div>
 
-          <Link href="/site" className="hs-hdr-logo" aria-label={`${settings.businessName} home`}>
+          <Link href="/" className="hs-hdr-logo" aria-label={`${settings.businessName} home`}>
             {logo ? (
               <span className="hs-hdr-mark">
                 <Image src={logo} alt={settings.businessName} fill sizes="160px" priority style={{ objectFit: 'contain' }} />
@@ -91,7 +91,7 @@ export function ServiceHeader({
         {/* Wide screens: every service is a tab, each its own page. */}
         {serviceLinks.length ? (
           <nav className="hs-tabs" aria-label="Services">
-            <Link href="/site" className={pathname === '/site' ? 'is-current' : undefined}>
+            <Link href="/" className={pathname === '/' ? 'is-current' : undefined}>
               <NavIcon name="home" />
               Home
             </Link>
@@ -146,7 +146,7 @@ export function ServiceHeader({
           </Link>
         ))}
         <p className="hs-drawer-heading">Company</p>
-        <Link href="/site" className="hs-drawer-link">
+        <Link href="/" className="hs-drawer-link">
           Home
         </Link>
         <Link href="/about" className="hs-drawer-link">

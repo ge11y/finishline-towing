@@ -109,7 +109,7 @@ function siteUrl(): string {
   if (explicit) return explicit.replace(/\/+$/, '')
   const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim()
   if (vercel) return `https://${vercel.replace(/^https?:\/\//, '').replace(/\/+$/, '')}`
-  return 'https://finishline-towing.vercel.app'
+  return 'https://finishlinetowing.org'
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -132,7 +132,6 @@ export async function generateMetadata(): Promise<Metadata> {
         ? { index: false, follow: false }
         : { index: true, follow: true },
     metadataBase: new URL(siteUrl()),
-    alternates: { canonical: '/' },
     // Header already uses Jacob Leete's lockup via brandSettings.logoUrl.
     // Favicon is the mascot only (no wordmark). OG points at the lockup.
     icons: {
@@ -157,13 +156,13 @@ export async function generateMetadata(): Promise<Metadata> {
           url: '/clients/finish-line-towing/og-lockup.png',
           width: 1200,
           height: 630,
-          alt: 'FINISHLINE Towing',
+          alt: 'Finish Line Towing',
         },
         {
           url: '/clients/finish-line-towing/logo-round.png',
           width: 800,
           height: 800,
-          alt: 'FINISHLINE Towing',
+          alt: 'Finish Line Towing',
         },
       ],
     },

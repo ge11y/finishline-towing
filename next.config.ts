@@ -1,6 +1,13 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  // The real site now lives at /. Old preview paths fold into it.
+  async redirects() {
+    return [
+      { source: '/site', destination: '/', permanent: true },
+      { source: '/coming-soon', destination: '/', permanent: true },
+    ]
+  },
   images: {
     remotePatterns: [
       {

@@ -55,7 +55,7 @@ export const CURRENT_SPONSORS: CurrentSponsor[] = [
   { name: 'Longacre Racing Products', url: 'https://longacreracing.com/' },
   { name: 'Fireside Hearth & Leisure', url: 'https://www.firesidehearth.net/' },
   { name: 'McKean Builders' },
-  { name: 'FINISHLINE Towing', url: '/site' },
+  { name: 'FINISHLINE Towing', url: '/' },
 ]
 
 /** Where he races, and the page he posts from. Both owner-supplied. */

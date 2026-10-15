@@ -106,8 +106,8 @@ export function NavBar({ settings }: { settings: PublicFactorySettings }) {
   const customLogoSrc = rawLogoSrc && !/\/brand\/demo-logo/.test(rawLogoSrc) ? rawLogoSrc : null;
   const isServiceMode = settings.catalogSettings.catalogMode === "services";
   const shopLinks = isServiceMode ? [
-    { label: "Home", href: "/site" },
-    { label: settings.catalogSettings.serviceLabel || "Services", href: "/site#services" },
+    { label: "Home", href: "/" },
+    { label: settings.catalogSettings.serviceLabel || "Services", href: "/#services" },
   ] : [
     { label: categoryLabels.candles || "Candles", href: "/products?group=candles" },
     { label: categoryLabels.wax_melts || "Wax Melts", href: "/products?group=wax_melts" },
@@ -220,7 +220,7 @@ export function NavBar({ settings }: { settings: PublicFactorySettings }) {
           {menuOpen ? <X size={18} /> : <Menu size={18} />}
         </button>
         <Link
-          href={isServiceMode ? "/site" : "/"}
+          href={"/"}
           className="site-nav-logo"
           style={{
             position: "absolute",

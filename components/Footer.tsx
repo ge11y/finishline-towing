@@ -104,7 +104,7 @@ export function Footer({ settings }: { settings?: PublicFactorySettings }) {
               have no product catalog, so point at the site's services section
               rather than /products. */}
           {isServiceMode ? (
-            <FooterLink href="/site#services">See all services</FooterLink>
+            <FooterLink href="/#services">See all services</FooterLink>
           ) : (
             <FooterLink href="/products">View {catalogLabel}</FooterLink>
           )}

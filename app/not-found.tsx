@@ -28,7 +28,7 @@ export default async function NotFound() {
       ) : null}
 
       <p className="nf-links">
-        <Link href="/site">Home</Link>
+        <Link href="/">Home</Link>
         <Link href="/service-area">Service area</Link>
         <Link href="/contact">Contact</Link>
       </p>

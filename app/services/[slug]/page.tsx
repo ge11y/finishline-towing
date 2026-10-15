@@ -42,7 +42,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const area = settings.serviceSite.serviceAreaLine || settings.companyAddress
   return {
     title: { absolute: `${service.displayName}${area ? ` — ${area}` : ''} | ${settings.businessName}` },
-    description: service.summaryFull || service.summaryShort,
+    description: `${service.displayName} 24/7 from ${settings.businessName}, North Haverhill, NH: ${(service.summaryFull || service.summaryShort).split('\n').map((line) => line.trim()).filter(Boolean).join('. ')}.`.slice(0, 300),
+    alternates: { canonical: `/services/${service.slug}` },
+    openGraph: { title: `${service.displayName} — ${area} | ${settings.businessName}`, url: `/services/${service.slug}` },
   }
 }
 
@@ -94,9 +96,9 @@ export default async function ServiceDetailPage({ params }: Props) {
         ) : null}
         <div className="hs-service-hero-inner">
           <nav className="hs-crumbs" aria-label="Breadcrumb">
-            <Link href="/site">Home</Link>
+            <Link href="/">Home</Link>
             <span aria-hidden="true">/</span>
-            <Link href="/site#services">{settings.catalogSettings.serviceLabel}</Link>
+            <Link href="/#services">{settings.catalogSettings.serviceLabel}</Link>
           </nav>
           <h1>{service.displayName}</h1>
           {serviceSite.serviceAreaLine ? <p className="hs-service-area">{serviceSite.serviceAreaLine}</p> : null}

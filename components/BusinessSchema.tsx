@@ -1,5 +1,6 @@
 import { getPublicFactorySettings } from '@/lib/public-factory-settings'
-import { DAY_CELL, DAY_CELL_WHEN, NIGHT_PAGER, NIGHT_PAGER_WHEN } from '@/lib/contact'
+import { DAY_CELL, DAY_CELL_WHEN, MAP_LINK, NIGHT_PAGER, NIGHT_PAGER_WHEN } from '@/lib/contact'
+import { TOWNS } from '@/lib/towns'
 
 /**
  * Structured data for the business, so a search engine can read the phone
@@ -30,39 +31,17 @@ const SERVICES = [
 // From the NH Secretary of State filing and FMCSA, cross-checked in the dossier.
 const GEO = { latitude: 44.084412, longitude: -72.005957 }
 
-const AREA_SERVED = [
-  'North Haverhill',
-  'Haverhill',
-  'Woodsville',
-  'Benton',
-  'Bath',
-  'Piermont',
-  'Landaff',
-  'Lisbon',
-  'Monroe',
-  'Lyman',
-  'Orford',
-  'Lyme',
-  'Hanover',
-  'Lebanon',
-  'Littleton',
-  'Franconia',
-  'Sugar Hill',
-  'Plymouth',
-  'Warren',
-  'Wentworth',
-  'Rumney',
-]
+const AREA_SERVED = TOWNS.map((town) => town.name)
 
 function siteUrl(): string {
   const explicit = process.env.SITE_URL?.trim()
   if (explicit) return explicit.replace(/\/+$/, '')
   const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim()
   if (vercel) return `https://${vercel.replace(/^https?:\/\//, '').replace(/\/+$/, '')}`
-  return 'https://finishline-towing.vercel.app'
+  return 'https://finishlinetowing.org'
 }
 
-export async function BusinessSchema({ pageUrl = '/site' }: { pageUrl?: string } = {}) {
+export async function BusinessSchema({ pageUrl = '/' }: { pageUrl?: string } = {}) {
   const settings = await getPublicFactorySettings()
   const base = siteUrl()
 
@@ -70,8 +49,10 @@ export async function BusinessSchema({ pageUrl = '/site' }: { pageUrl?: string }
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'AutomotiveBusiness'],
     '@id': `${base}/#business`,
-    name: 'Finish Line Towing, LLC',
-    alternateName: settings.businessName,
+    name: 'Finish Line Towing',
+    legalName: 'Finish Line Towing, LLC',
+    alternateName: 'FINISHLINE Towing',
+    hasMap: MAP_LINK,
     description: settings.siteContent.homepageSubheadline,
     url: `${base}${pageUrl === '/' ? '/' : pageUrl}`,
     telephone: `${DAY_CELL}, ${NIGHT_PAGER}`,
@@ -101,7 +82,7 @@ export async function BusinessSchema({ pageUrl = '/site' }: { pageUrl?: string }
     logo: settings.brandSettings.logoUrl ? `${base}${settings.brandSettings.logoUrl}` : undefined,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '585 Benton Road',
+      streetAddress: '585 Benton Rd',
       addressLocality: 'North Haverhill',
       addressRegion: 'NH',
       postalCode: '03774',
@@ -124,7 +105,11 @@ export async function BusinessSchema({ pageUrl = '/site' }: { pageUrl?: string }
         closes: '23:59',
       },
     ],
-    areaServed: AREA_SERVED.map((name) => ({ '@type': 'City', name })),
+    areaServed: AREA_SERVED.map((name) => ({
+      '@type': 'City',
+      name: `${name}, NH`,
+      containedInPlace: { '@type': 'State', name: 'New Hampshire' },
+    })),
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Towing and recovery',

@@ -1,25 +1,17 @@
 import type { MetadataRoute } from 'next'
-import { isPreviewGateEnabled } from '@/lib/preview-gate'
 
 function siteUrl(): string {
   const explicit = process.env.SITE_URL?.trim()
   if (explicit) return explicit.replace(/\/+$/, '')
   const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim()
   if (vercel) return `https://${vercel.replace(/^https?:\/\//, '').replace(/\/+$/, '')}`
-  return 'https://finishline-towing.vercel.app'
+  return 'https://finishlinetowing.org'
 }
 
 export default function robots(): MetadataRoute.Robots {
-  // The owner's admin and the API are disallowed — the admin is behind a login
-  // anyway, but there is nothing to gain from a crawler finding the door.
+  // Only the owner's admin and the API are kept out; every public page is crawlable.
   return {
-    rules: {
-      userAgent: '*',
-      allow: ['/', '/coming-soon'],
-      disallow: isPreviewGateEnabled()
-        ? ['/admin', '/admin/', '/api/', '/site', '/services', '/merch', '/racing']
-        : ['/admin', '/admin/', '/api/'],
-    },
+    rules: { userAgent: '*', allow: '/', disallow: ['/admin', '/admin/', '/api/'] },
     sitemap: `${siteUrl()}/sitemap.xml`,
   }
 }

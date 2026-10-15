@@ -8,7 +8,7 @@
 
 import type { PublicFactorySettings } from '@/lib/public-factory-settings'
 import type { Product } from '@/lib/types'
-import { LABELED_HOURS, PROOF_POINTS, SUPPORT_NOTE } from '@/lib/contact'
+import { ADDRESS_LINE, BUSINESS_NAME, LABELED_HOURS, PROOF_POINTS, SUPPORT_NOTE } from '@/lib/contact'
 
 export const ROUND_LOGO = '/clients/finish-line-towing/logo-round.png'
 export const HERO_BANNER = '/clients/finish-line-towing/hero-racetruck-v3.jpg'
@@ -61,10 +61,10 @@ export const SERVICE_REDLINES: Record<
 }
 
 const ABOUT_COPY =
-  'Finish Line Towing is Joshua Aldrich. Local, owner-operated flatbed towing and recovery out of North Haverhill — serving the Twin States since 2012. The truck rolls 24/7; the phone goes to him, not a call center. In his words: "I started in this business as an opportunity to provide for our area, with services much needed."'
+  'Finish Line Towing is Joshua Aldrich. Local, owner-operated flatbed towing and recovery out of North Haverhill — serving the area since 2012. The truck rolls 24/7; the phone goes to him, not a call center. In his words: "I started in this business as an opportunity to provide for our area, with services much needed."'
 
 const SUBHEAD =
-  '24/7 flatbed towing and recovery out of North Haverhill, New Hampshire. Serving the Twin States.'
+  '24/7 flatbed towing and recovery out of 585 Benton Rd, North Haverhill, New Hampshire. Serving Haverhill, Woodsville and towns across northern New Hampshire.'
 
 const PROOF = PROOF_POINTS
 
@@ -111,6 +111,11 @@ export function orderServicesForDisplay<T extends { slug: string }>(services: T[
 export function applyPublicRedlines(settings: PublicFactorySettings): PublicFactorySettings {
   return {
     ...settings,
+    // One spelling everywhere text is read by search engines and directories;
+    // matches the LLC filing, FMCSA and existing citations. The logo art keeps
+    // its FINISHLINE lockup.
+    businessName: BUSINESS_NAME,
+    companyAddress: ADDRESS_LINE,
     supportNote: SUPPORT_NOTE,
     brandSettings: {
       ...settings.brandSettings,
@@ -120,7 +125,7 @@ export function applyPublicRedlines(settings: PublicFactorySettings): PublicFact
     },
     siteContent: {
       ...settings.siteContent,
-      homepageHeadline: '24/7 Flatbed Towing.',
+      homepageHeadline: '24/7 Towing & Recovery in North Haverhill, NH',
       homepageSubheadline: SUBHEAD,
       proofPoints: PROOF,
       primaryCtaLabel: 'Call day cell',
@@ -128,7 +133,7 @@ export function applyPublicRedlines(settings: PublicFactorySettings): PublicFact
     },
     serviceSite: {
       ...settings.serviceSite,
-      serviceAreaLine: settings.serviceSite.serviceAreaLine || 'North Haverhill, NH · Twin States',
+      serviceAreaLine: 'North Haverhill, NH',
       businessHours: LABELED_HOURS.map((row) => ({ days: row.days, hours: row.hours })),
       ctaCards: settings.serviceSite.ctaCards.map((card) =>
         card.title === 'Broken down right now?'

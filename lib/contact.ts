@@ -29,7 +29,7 @@ export const LABELED_HOURS = [
 ] as const
 
 export const PROOF_POINTS =
-  `24/7 service · Day cell ${DAY_CELL} · Night pager 8pm–5am ${NIGHT_PAGER} · Serving the Twin States since 2012 · Owner-operated · USDOT 3693451`
+  `24/7 service · Day cell ${DAY_CELL} · Night pager 8pm–5am ${NIGHT_PAGER} · Serving the area since 2012 · Owner-operated · USDOT 3693451`
 
 export const SUPPORT_NOTE =
   `24/7 service. Day / cell ${DAY_CELL} (daytime through ~8pm). Night / pager ${NIGHT_PAGER} (8pm–5am).`
@@ -37,3 +37,15 @@ export const SUPPORT_NOTE =
 export function telHref(phone: string): string {
   return `tel:${phone.replace(/[^+\d]/g, '')}`
 }
+
+/** Business name as filed (NH SOS / FMCSA) and as used on directory citations. */
+export const BUSINESS_NAME = 'Finish Line Towing'
+export const STREET = '585 Benton Rd'
+export const CITY = 'North Haverhill'
+export const REGION = 'NH'
+export const POSTAL = '03774'
+export const ADDRESS_LINE = `${STREET}, ${CITY}, ${REGION} ${POSTAL}`
+export const MAP_EMBED_SRC =
+  'https://maps.google.com/maps?q=Finish+Line+Towing,+585+Benton+Rd,+North+Haverhill,+NH+03774&z=11&output=embed'
+export const MAP_LINK =
+  'https://www.google.com/maps/search/?api=1&query=Finish+Line+Towing+585+Benton+Rd+North+Haverhill+NH+03774'
