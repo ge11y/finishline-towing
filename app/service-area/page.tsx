@@ -7,9 +7,9 @@ export const dynamic = 'force-dynamic'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: { absolute: 'Towing Service Area — Haverhill, Woodsville, Littleton & Northern NH | Finish Line Towing' },
+    title: { absolute: 'Towing Service Area — Haverhill, Franconia, Sugar Hill & North Country NH | Finish Line Towing' },
     description:
-      'New Hampshire towns and roads covered 24/7 by Finish Line Towing out of North Haverhill: Haverhill, Woodsville, Bath, Piermont, Littleton, Franconia, Lisbon, Lincoln, Plymouth, Lebanon, Hanover.',
+      'New Hampshire towns and roads covered 24/7 by Finish Line Towing out of North Haverhill: Haverhill, Sugar Hill, Franconia, Bath, Bethlehem, Lisbon, Piermont, Benton, Easton, Monroe and surrounding North Country towns.',
     alternates: { canonical: '/service-area' },
   }
 }
@@ -22,42 +22,13 @@ export async function generateMetadata(): Promise<Metadata> {
  */
 const AREAS = [
   {
-    heading: 'Close by',
-    note: 'The home ground — usually the fastest to reach.',
-    towns: [
-      'North Haverhill',
-      'Haverhill',
-      'Woodsville',
-      'Benton',
-      'Bath',
-      'Piermont',
-      'Landaff',
-      'Lisbon',
-      'Monroe',
-      'Lyman',
-    ],
-  },
-  {
-    heading: 'Farther out in New Hampshire',
-    note: 'A longer run, still routine.',
-    towns: [
-      'Orford',
-      'Lyme',
-      'Hanover',
-      'Lebanon',
-      'Littleton',
-      'Franconia',
-      'Sugar Hill',
-      'Lincoln',
-      'Plymouth',
-      'Warren',
-      'Wentworth',
-      'Rumney',
-    ],
+    heading: 'Main towns',
+    note: 'The towns Josh covers most — and surrounding North Country towns.',
+    towns: TOWNS.map((town) => town.name),
   },
 ]
 
-const CORRIDORS = ['US-302', 'NH-10', 'NH-25', 'I-93 as a longer run']
+const CORRIDORS = ['US-302', 'NH-10', 'NH-25', 'NH-116', 'NH-117', 'NH-18', 'NH-135', 'I-93 near Franconia and Bethlehem']
 
 // 585 Benton Road. The keyless embed endpoint — no API key to leak or expire.
 const MAP_SRC =
@@ -75,7 +46,7 @@ export default async function ServiceAreaPage() {
           <h1>Where we tow in New Hampshire</h1>
         </div>
         <p className="hs-intro-copy">
-          Based at 585 Benton Rd in North Haverhill, serving towns across northern New Hampshire, 24/7.
+          Based at 585 Benton Rd in North Haverhill, serving Haverhill and surrounding North Country towns, 24/7.
           If your town isn’t on this list, it’s still worth a call — long-distance work is
           quoted, and the truck has taken loads well past these lines.
         </p>

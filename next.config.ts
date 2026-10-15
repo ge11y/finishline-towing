@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import { REMOVED_TOWN_REDIRECTS } from './lib/towns'
 
 const nextConfig: NextConfig = {
   // The real site now lives at /. Old preview paths fold into it.
@@ -6,6 +7,11 @@ const nextConfig: NextConfig = {
     return [
       { source: '/site', destination: '/', permanent: true },
       { source: '/coming-soon', destination: '/', permanent: true },
+      ...Object.entries(REMOVED_TOWN_REDIRECTS).map(([slug, destination]) => ({
+        source: `/towing/${slug}`,
+        destination,
+        permanent: true,
+      })),
     ]
   },
   images: {
