@@ -4,12 +4,13 @@ import Link from 'next/link'
 import { Star } from 'lucide-react'
 import { getLiveCatalogDisplayProducts } from '@/lib/catalog-live'
 import { getPublicFactorySettings } from '@/lib/public-factory-settings'
-import { DAY_CELL, NIGHT_PAGER, telHref } from '@/lib/contact'
+import { DAY_CELL, GOOGLE_REVIEW_URL, NIGHT_PAGER, telHref } from '@/lib/contact'
 import { DualPhone } from '@/components/service/DualPhone'
 import { ServicesMarquee } from '@/components/service/ServicesMarquee'
 import { QuoteForm } from '@/components/service/QuoteForm'
 import { BusinessSchema } from '@/components/BusinessSchema'
 import { NapBlock } from '@/components/service/NapBlock'
+import { ReviewCta } from '@/components/service/ReviewCta'
 import { TOWNS } from '@/lib/towns'
 import { WhyIcon } from '@/components/WhyIcon'
 import { parseFaqCopy } from '@/lib/service-mode'
@@ -193,11 +194,16 @@ export default async function HomeServiceLandingPage() {
               </figure>
             ))}
           </div>
-          {serviceSite.reviewsUrl ? (
-            <a href={serviceSite.reviewsUrl} target="_blank" rel="noreferrer" className="hs-btn-outline hs-reviews-more">
-              Read all reviews
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+            <a href={GOOGLE_REVIEW_URL} target="_blank" rel="noopener noreferrer" className="hs-btn-primary hs-reviews-more">
+              Leave us a Google review
             </a>
-          ) : null}
+            {serviceSite.reviewsUrl ? (
+              <a href={serviceSite.reviewsUrl} target="_blank" rel="noopener noreferrer" className="hs-btn-outline hs-reviews-more">
+                Read our Facebook reviews
+              </a>
+            ) : null}
+          </div>
         </section>
       ) : null}
 
@@ -248,6 +254,8 @@ export default async function HomeServiceLandingPage() {
           ))}
         </div>
       </section>
+
+      <ReviewCta facebookUrl={serviceSite.reviewsUrl} />
 
       <NapBlock />
 

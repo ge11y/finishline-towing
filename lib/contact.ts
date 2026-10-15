@@ -49,3 +49,9 @@ export const MAP_EMBED_SRC =
   'https://maps.google.com/maps?q=Finish+Line+Towing,+585+Benton+Rd,+North+Haverhill,+NH+03774&z=11&output=embed'
 export const MAP_LINK =
   'https://www.google.com/maps/search/?api=1&query=Finish+Line+Towing+585+Benton+Rd+North+Haverhill+NH+03774'
+
+/** Google Business Profile "write a review" link (tracked for the website). */
+export const GOOGLE_REVIEW_URL =
+  'https://g.page/r/CWxpd1Rhol8yEBM/review?utm_source=website&utm_medium=reviews'
+/** Short path for texting customers; 302s to GOOGLE_REVIEW_URL. */
+export const REVIEW_SHORT_PATH = '/review'
