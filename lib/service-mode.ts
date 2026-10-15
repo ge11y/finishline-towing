@@ -14,7 +14,7 @@ import { getPublicFactorySettings } from '@/lib/public-factory-settings'
 export async function redirectStorefrontRouteInServiceMode() {
   const settings = await getPublicFactorySettings()
   if (settings.catalogSettings.catalogMode === 'services') {
-    redirect('/site')
+    redirect('/')
   }
 }
 

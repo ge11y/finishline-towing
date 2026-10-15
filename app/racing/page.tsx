@@ -143,7 +143,7 @@ export default async function RacingPage() {
                 It is the same number as the tow line, and it is the same person answering.
               </p>
               <p className="rc-aside-note">
-                Looking for a tow instead? <Link href="/site">That way</Link>.
+                Looking for a tow instead? <Link href="/">That way</Link>.
               </p>
             </aside>
           </div>
