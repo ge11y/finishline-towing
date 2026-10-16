@@ -5,6 +5,12 @@ const nextConfig: NextConfig = {
   // The real site now lives at /. Old preview paths fold into it.
   async redirects() {
     return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.finishlinetowing.org' }],
+        destination: 'https://finishlinetowing.org/:path*',
+        permanent: true,
+      },
       { source: '/site', destination: '/', permanent: true },
       { source: '/coming-soon', destination: '/', permanent: true },
       ...Object.entries(REMOVED_TOWN_REDIRECTS).map(([slug, destination]) => ({

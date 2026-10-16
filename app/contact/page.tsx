@@ -11,6 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await getPublicFactorySettings()
   return {
     title: 'Contact a Tow Truck in North Haverhill, NH',
+    alternates: { canonical: '/contact' },
     description: `Contact ${settings.businessName}. ${settings.supportNote}`,
   }
 }

@@ -9,6 +9,7 @@ export const dynamic = 'force-dynamic'
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Shirts & Hoodies — FINISHLINE Towing Merch',
+    alternates: { canonical: '/merch' },
     description:
       'Shirts and hoodies from Finish Line Towing in North Haverhill, New Hampshire. Text Josh to order — no checkout, no shipping forms.',
   }

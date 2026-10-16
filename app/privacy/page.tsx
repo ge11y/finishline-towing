@@ -7,6 +7,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await getPublicFactorySettings()
   return {
     title: 'Privacy Policy',
+    alternates: { canonical: '/privacy' },
     description: `Privacy policy for ${settings.businessName} — how contact data is collected and used.`,
   }
 }

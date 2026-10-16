@@ -8,6 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await getPublicFactorySettings()
   return {
     title: 'FAQ',
+    alternates: { canonical: '/faq' },
     description: `Common questions about ${settings.businessName}.`,
   }
 }

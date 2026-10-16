@@ -14,11 +14,13 @@ export async function generateMetadata(): Promise<Metadata> {
     // The root layout already appends the business name to the title.
     return {
       title: 'About',
+      alternates: { canonical: '/about' },
       description: settings.siteContent.homepageSubheadline,
     }
   }
   return {
     title: 'About',
+    alternates: { canonical: '/about' },
     description:
       'A small home-fragrance studio with hand-poured candles, live availability, and published quality reports.',
   }

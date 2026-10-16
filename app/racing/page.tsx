@@ -11,6 +11,7 @@ export const dynamic = 'force-dynamic'
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'The 74 — Kiptyn’s Race Program & Sponsorship',
+    alternates: { canonical: '/racing' },
     description:
       `Finish Line Towing backs the #74 driven by Kiptyn Aldrich at ${RACE_TRACK}. Local businesses can put their name on the truck — see who already has, and get in touch.`,
   }

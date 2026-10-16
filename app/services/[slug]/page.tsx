@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const area = settings.serviceSite.serviceAreaLine || settings.companyAddress
   return {
     title: { absolute: `${service.displayName}${area ? ` — ${area}` : ''} | ${settings.businessName}` },
-    description: `${service.displayName} 24/7 from ${settings.businessName}, North Haverhill, NH: ${(service.summaryFull || service.summaryShort).split('\n').map((line) => line.trim()).filter(Boolean).join('. ')}.`.slice(0, 300),
+    description: `${service.displayName} 24/7 from ${settings.businessName}, North Haverhill, NH: ${(service.summaryFull || service.summaryShort).split('\n').map((line) => line.trim().replace(/\.+$/, '')).filter(Boolean).join('. ')}.`.slice(0, 300),
     alternates: { canonical: `/services/${service.slug}` },
     openGraph: { title: `${service.displayName} — ${area} | ${settings.businessName}`, url: `/services/${service.slug}` },
   }

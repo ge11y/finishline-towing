@@ -7,6 +7,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await getPublicFactorySettings()
   return {
     title: 'Terms of Service',
+    alternates: { canonical: '/terms' },
     description: `Terms of service for ${settings.businessName}.`,
   }
 }
