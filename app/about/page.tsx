@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: 'About',
     alternates: { canonical: '/about' },
     description:
-      'A small home-fragrance studio with hand-poured candles, live availability, and published quality reports.',
+      'Owner-operated 24/7 flatbed towing and recovery out of North Haverhill, NH, serving North Country NH.',
   }
 }
 
@@ -33,8 +33,8 @@ function formatCollection(value: string) {
 }
 
 /**
- * Service clients get their own blueprint copy — the home-fragrance studio
- * text below is seed data for the product-mode demo store, not theirs.
+ * Service clients get their own blueprint copy — the product-mode
+ * fallback below is only used when settings are not in services mode.
  */
 function ServiceAboutPage({
   settings,
@@ -141,23 +141,23 @@ export default async function AboutPage() {
 
   const process = [
     {
-      title: 'Hand-poured in small batches',
-      body: 'Listings focus on scent profile, format, size, availability, and quality-report status — clear, honest product information.',
+      title: 'Owner-operated',
+      body: 'Locally owned and run out of 585 Benton Rd, North Haverhill. The phone goes to the owner, not a call center.',
       icon: FlaskConical,
     },
     {
-      title: 'Quality report workflow',
-      body: 'Safety and quality documentation is maintained separately from marketing copy so customers can review source records clearly.',
+      title: 'Strapped at the wheels',
+      body: 'Cars, light trucks and no-starts go on the flatbed strapped at the wheels, never chained to the frame.',
       icon: ShieldCheck,
     },
     {
-      title: 'Live inventory source',
-      body: 'Availability and product data are maintained from live catalog records, so public listings stay current.',
+      title: 'Recovery and winch-outs',
+      body: 'Off the shoulder, in a ditch, or backed into soft ground: winched out and set back on the road, or loaded up.',
       icon: PackageCheck,
     },
     {
-      title: 'Report-aware presentation',
-      body: 'Published quality reports are linked where available, while products that do not require separate documentation avoid pending labels.',
+      title: '24/7 service',
+      body: 'Day cell and night pager, so there is a number to call around the clock.',
       icon: ClipboardCheck,
     },
   ]
@@ -176,14 +176,14 @@ export default async function AboutPage() {
           <div>
             <div className="section-label" style={{ marginBottom: '12px' }}>About {businessName}</div>
             <h1 style={{ fontSize: 'clamp(1.9rem, 3.4vw, 3rem)', lineHeight: 1.06, fontWeight: 900, margin: 0, maxWidth: '680px', color: 'var(--text-primary)', textWrap: 'balance' }}>
-              Home fragrance, poured by hand and documented with care.
+              24/7 flatbed towing and recovery out of North Haverhill, NH.
             </h1>
             <p style={{ fontSize: '15px', color: 'var(--text-secondary)', maxWidth: '620px', lineHeight: 1.7, margin: '16px 0 0' }}>
-              {businessName} is a small home-fragrance studio. The public site is designed to keep product collections, sizes, availability, and quality-report status easy to review while keeping the language simple and honest.
+              {businessName} is local, owner-operated flatbed towing and recovery out of North Haverhill, serving North Country NH. The truck rolls 24/7, and the phone goes to the owner, not a call center.
             </p>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '24px' }}>
-              <Link className="fm-btn-primary" href="/products">Browse catalog</Link>
-              <Link className="fm-btn-outline" href="/quality-reports">View Quality Reports</Link>
+              <Link className="fm-btn-primary" href="/contact">Request a tow</Link>
+              <Link className="fm-btn-outline" href="/services/flatbed-towing">Flatbed towing</Link>
             </div>
           </div>
         </div>
@@ -215,15 +215,15 @@ export default async function AboutPage() {
 
           <div className="card" style={{ padding: '26px', display: 'grid', gridTemplateColumns: 'minmax(0, 0.9fr) minmax(280px, 1.1fr)', gap: '28px', alignItems: 'start' }}>
             <div>
-              <div className="section-label" style={{ marginBottom: '12px' }}>Operating Standard</div>
-              <h2 style={{ margin: 0, color: 'var(--text-primary)', fontSize: '24px', fontWeight: 900 }}>Clear, honest product pages.</h2>
+              <div className="section-label" style={{ marginBottom: '12px' }}>Service area</div>
+              <h2 style={{ margin: 0, color: 'var(--text-primary)', fontSize: '24px', fontWeight: 900 }}>North Country NH, 24/7.</h2>
             </div>
             <div style={{ display: 'grid', gap: '14px', color: 'var(--text-secondary)', lineHeight: 1.75, fontSize: '14px' }}>
               <p style={{ margin: 0 }}>
-                Product pages are written as straightforward catalog entries. They describe scent notes, materials, burn times, and care guidance without exaggerated claims.
+                Based at 585 Benton Rd, North Haverhill, serving Haverhill, Franconia, Sugar Hill, Bath and surrounding North Country towns.
               </p>
               <p style={{ margin: 0 }}>
-                The catalog is intended to help customers explore collections, compare available sizes, review availability, and access quality documentation where applicable.
+                Flatbed towing, recovery and winch-outs, roadside assistance, hauling and transport, junk car removal, and motorcycle towing.
               </p>
             </div>
           </div>

@@ -82,7 +82,7 @@ export default async function HomeServiceLandingPage() {
       <section className="hs-hero">
         <div className="hs-hero-media" aria-hidden="true">
           {heroImage ? (
-            <Image src={heroImage} alt="" fill priority sizes="100vw" style={{ objectFit: 'cover' }} />
+            <Image src={heroImage} alt="" fill priority fetchPriority="high" sizes="100vw" style={{ objectFit: 'cover' }} />
           ) : null}
           <div className="hs-hero-scrim" />
         </div>

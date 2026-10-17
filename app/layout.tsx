@@ -17,16 +17,22 @@ const instrumentSerif = Instrument_Serif({
   style: ["normal", "italic"],
   display: "swap",
   variable: "--font-instrument-serif",
+  // Not used by the live road_sign preset; still loads on demand, just not preloaded.
+  preload: false,
 });
 const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-hanken",
+  // Not used by the live road_sign preset; still loads on demand, just not preloaded.
+  preload: false,
 });
 const schibstedGrotesk = Schibsted_Grotesk({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-schibsted",
+  // Not used by the live road_sign preset; still loads on demand, just not preloaded.
+  preload: false,
 });
 // Served from app/fonts rather than next/font/google: Google rotated IBM Plex
 // Sans' variable-axis files out of its CDN, so the google loader 404s on every
@@ -41,6 +47,8 @@ const ibmPlexSans = localFont({
   ],
   display: "swap",
   variable: "--font-ibm-plex",
+  // Not used by the live road_sign preset; still loads on demand, just not preloaded.
+  preload: false,
 });
 
 // road_sign: Overpass is drawn from the FHWA Highway Gothic lettering used on

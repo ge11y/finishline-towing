@@ -9,8 +9,10 @@ import posthog from 'posthog-js'
 
 const key = process.env.NEXT_PUBLIC_POSTHOG_KEY
 
-if (key && !window.location.pathname.startsWith('/admin')) {
-  posthog.init(key, {
+// Deferred until the page has loaded and the main thread is idle, so the
+// analytics bundle never competes with the hero for first paint (LCP).
+function initPosthog() {
+  posthog.init(key as string, {
     api_host: 'https://us.i.posthog.com',
     ui_host: 'https://us.posthog.com',
     defaults: '2025-05-24',
@@ -18,4 +20,16 @@ if (key && !window.location.pathname.startsWith('/admin')) {
   posthog.register({
     site: process.env.NEXT_PUBLIC_POSTHOG_SITE || window.location.hostname,
   })
+}
+
+if (key && !window.location.pathname.startsWith('/admin')) {
+  const schedule = () => {
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(initPosthog, { timeout: 4000 })
+    } else {
+      setTimeout(initPosthog, 1500)
+    }
+  }
+  if (document.readyState === 'complete') schedule()
+  else window.addEventListener('load', schedule, { once: true })
 }
